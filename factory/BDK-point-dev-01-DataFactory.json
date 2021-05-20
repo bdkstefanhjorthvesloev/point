@@ -1,0 +1,9 @@
+{
+	"name": "BDK-point-dev-01-DataFactory",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2d5b9096-1727-4b78-bbb4-cf8cb7d9c4b9",
+		"tenantId": "2e91ef12-3cbc-456a-8637-b8d139d5d3a7"
+	}
+}
