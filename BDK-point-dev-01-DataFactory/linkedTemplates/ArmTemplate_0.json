@@ -93,7 +93,7 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "fact dataflow"
+					"table": "stage.dataflows"
 				}
 			},
 			"dependsOn": [
@@ -147,7 +147,7 @@
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "Qualiware IT Assets"
+					"table": "stage.Qualiware IT Assets"
 				}
 			},
 			"dependsOn": [
@@ -265,7 +265,330 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/qualiware_IT Assets_pipeline_copy')]",
+			"name": "[concat(parameters('factoryName'), '/IT_Asset_list')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_AzureBlobStorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "IT Asset liste",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "IT Assets MASTER (2) 20.05.2021.xlsx",
+						"container": "itasset"
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": [
+					{
+						"name": "IT Asset ID",
+						"type": "String"
+					},
+					{
+						"name": "Title",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Description",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Type",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Business Area",
+						"type": "String"
+					},
+					{
+						"name": "Organizational Operational Responsibility",
+						"type": "String"
+					},
+					{
+						"name": "Business Process",
+						"type": "String"
+					},
+					{
+						"name": "Lifecycle",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Responsibilities - Strategic",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Responsibilities - Tactical",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Responsibilities\t- Operational",
+						"type": "String"
+					},
+					{
+						"name": "Til venstre er med i fase 1 data validering.",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Key Area",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Group",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Sub Group",
+						"type": "String"
+					},
+					{
+						"name": "CKBS kommentarer",
+						"type": "String"
+					},
+					{
+						"name": "NIS/ISO Criticality",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Owner Name",
+						"type": "String"
+					},
+					{
+						"name": "Teknisk System Ansvarlig",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Owner Division",
+						"type": "String"
+					},
+					{
+						"name": "IT Asset Owner Department",
+						"type": "String"
+					},
+					{
+						"name": "Interface ID",
+						"type": "String"
+					},
+					{
+						"name": "Singalprogram Flag",
+						"type": "String"
+					},
+					{
+						"name": "S og F-bane",
+						"type": "String"
+					},
+					{
+						"name": "Group 2",
+						"type": "String"
+					},
+					{
+						"name": "In Systemlandscape mapping",
+						"type": "String"
+					},
+					{
+						"name": "System ID",
+						"type": "String"
+					},
+					{
+						"name": "System Name",
+						"type": "String"
+					},
+					{
+						"name": "Verfied ",
+						"type": "String"
+					},
+					{
+						"name": "QualiwareID",
+						"type": "String"
+					},
+					{
+						"name": "Deleted",
+						"type": "String"
+					},
+					{
+						"name": "ISO/SAP",
+						"type": "String"
+					},
+					{
+						"name": "Dataklassifikation",
+						"type": "String"
+					},
+					{
+						"name": "Kommentar",
+						"type": "String"
+					},
+					{
+						"name": "Sidste kolonne i filter - tilføj nye kolonner til venstre for denne",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/bdk_point_AzureBlobStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/IT_Asset_List_AzureSqlTable')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "IT Asset ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Qualiware IT Asset ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Business Area",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Organizational Operational Responsibility Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Business Process",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Lifecycle",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Strategic Responsibility Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Tactical Responsibility Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Operational Responsibility Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset NIS/ISO Criticality",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Interface ID",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "stage.IT Assets"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/bdk_point_dev_01_DataBase_linked_service')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/completeitassetlistAzureSqlTable')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "IT Asset ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Qualiware IT Asset ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Business Area",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Organizational Operational Responsibility Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Business Process",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Lifecycle",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Strategic Responsibility Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Tactical Responsibility Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Operational Responsibility Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset NIS/ISO Criticality",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Asset Interface ID",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "dim IT Assets"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/bdk_point_dev_01_DataBase_linked_service')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/qualiware_IT Assets_pipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -293,7 +616,7 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE [dbo].[Qualiware IT Assets]",
+								"preCopyScript": "TRUNCATE TABLE [dbo].[stage.Qualiware IT Assets]",
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
@@ -457,7 +780,7 @@
 							},
 							"sink": {
 								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE [dbo].[fact dataflow]",
+								"preCopyScript": "TRUNCATE TABLE [dbo].[stage.dataflows]",
 								"disableMetricsCollection": false
 							},
 							"enableStaging": false,
@@ -593,6 +916,288 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/IT_Asset_List_pipeline')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "IT_asset_list_Copy",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "ExcelSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"preCopyScript": "TRUNCATE TABLE [dbo].[stage.IT Assets]",
+								"disableMetricsCollection": false
+							},
+							"enableStaging": false,
+							"enableSkipIncompatibleRow": true,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"name": "IT Asset ID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset ID",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "QualiwareID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "Qualiware IT Asset ID",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Title",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "IT Asset Description",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Description",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "IT Asset Type",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Type",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "IT Asset Business Area",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Business Area",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Organizational Operational Responsibility",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Organizational Operational Responsibility Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Business Process",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Business Process",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Lifecycle",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Lifecycle",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "IT Asset Responsibilities - Strategic",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Strategic Responsibility Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "IT Asset Responsibilities - Tactical",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Tactical Responsibility Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "IT Asset Responsibilities\t- Operational",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Operational Responsibility Name",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "NIS/ISO Criticality",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset NIS/ISO Criticality",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "Interface ID",
+											"type": "String",
+											"physicalType": "String"
+										},
+										"sink": {
+											"name": "IT Asset Interface ID",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									}
+								],
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "IT_Asset_list",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "IT_Asset_List_AzureSqlTable",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/IT_Asset_list')]",
+				"[concat(variables('factoryId'), '/datasets/IT_Asset_List_AzureSqlTable')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/it_asset_list_dataflow')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "Qualiware_IT_assets_AzureSqlTable",
+								"type": "DatasetReference"
+							},
+							"name": "qualiwareitassetlist"
+						},
+						{
+							"dataset": {
+								"referenceName": "IT_Asset_List_AzureSqlTable",
+								"type": "DatasetReference"
+							},
+							"name": "itassetlist"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "completeitassetlistAzureSqlTable",
+								"type": "DatasetReference"
+							},
+							"name": "itassetlistsink"
+						}
+					],
+					"transformations": [
+						{
+							"name": "joinqualiwarewithitassetlist"
+						}
+					],
+					"script": "source(output(\n\t\t{IT Asset ID} as string,\n\t\t{IT Asset Name} as string,\n\t\tAuditCD as string,\n\t\tRevision as string,\n\t\tAuditCN as string,\n\t\tGovernanceState as string,\n\t\tApprovalState as string,\n\t\tOwnedBy as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> qualiwareitassetlist\nsource(output(\n\t\t{IT Asset ID} as string,\n\t\t{IT Asset Qualiware IT Asset ID} as string,\n\t\t{IT Asset Name} as string,\n\t\t{IT Asset Description} as string,\n\t\t{IT Asset Type} as string,\n\t\t{IT Asset Business Area} as string,\n\t\t{IT Asset Organizational Operational Responsibility Name} as string,\n\t\t{IT Asset Business Process} as string,\n\t\t{IT Asset Lifecycle} as string,\n\t\t{IT Asset Strategic Responsibility Name} as string,\n\t\t{IT Asset Tactical Responsibility Name} as string,\n\t\t{IT Asset Operational Responsibility Name} as string,\n\t\t{IT Asset NIS/ISO Criticality} as string,\n\t\t{IT Asset Interface ID} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> itassetlist\nqualiwareitassetlist, itassetlist join(qualiwareitassetlist@{IT Asset ID} == {IT Asset Qualiware IT Asset ID},\n\tjoinType:'left',\n\tbroadcast: 'auto')~> joinqualiwarewithitassetlist\njoinqualiwarewithitassetlist sink(input(\n\t\t{IT Asset ID} as string,\n\t\t{Qualiware IT Asset ID} as string,\n\t\t{IT Asset Name} as string,\n\t\t{IT Asset Description} as string,\n\t\t{IT Asset Type} as string,\n\t\t{IT Asset Business Area} as string,\n\t\t{IT Asset Organizational Operational Responsibility Name} as string,\n\t\t{IT Asset Business Process} as string,\n\t\t{IT Asset Lifecycle} as string,\n\t\t{IT Asset Strategic Responsibility Name} as string,\n\t\t{IT Asset Tactical Responsibility Name} as string,\n\t\t{IT Asset Operational Responsibility Name} as string,\n\t\t{IT Asset NIS/ISO Criticality} as string,\n\t\t{IT Asset Interface ID} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tmapColumn(\n\t\t{IT Asset ID} = itassetlist@{IT Asset ID},\n\t\t{Qualiware IT Asset ID} = qualiwareitassetlist@{IT Asset ID},\n\t\t{IT Asset Name} = itassetlist@{IT Asset Name},\n\t\t{IT Asset Description},\n\t\t{IT Asset Type},\n\t\t{IT Asset Business Area},\n\t\t{IT Asset Organizational Operational Responsibility Name},\n\t\t{IT Asset Business Process},\n\t\t{IT Asset Lifecycle},\n\t\t{IT Asset Strategic Responsibility Name},\n\t\t{IT Asset Tactical Responsibility Name},\n\t\t{IT Asset Operational Responsibility Name},\n\t\t{IT Asset NIS/ISO Criticality},\n\t\t{IT Asset Interface ID}\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> itassetlistsink"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Qualiware_IT_assets_AzureSqlTable')]",
+				"[concat(variables('factoryId'), '/datasets/IT_Asset_List_AzureSqlTable')]",
+				"[concat(variables('factoryId'), '/datasets/completeitassetlistAzureSqlTable')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/pipeline trigger')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -606,20 +1211,28 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "qualiware_IT Assets_pipeline",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
 						"frequency": "Hour",
-						"interval": 12,
+						"interval": 6,
 						"startTime": "2021-05-21T09:33:00",
 						"timeZone": "Romance Standard Time"
 					}
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/qualiware_system_to_system pipeline')]"
+				"[concat(variables('factoryId'), '/pipelines/qualiware_system_to_system pipeline')]",
+				"[concat(variables('factoryId'), '/pipelines/qualiware_IT Assets_pipeline')]"
 			]
 		}
 	]
