@@ -148,6 +148,213 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "CopyITAssetList",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE [dbo].[dim IT Assets]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "IT Asset ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "QualiwareID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Qualiware IT Asset ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Title",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IT Asset Description",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Description",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IT Asset Type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IT Asset Business Area",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Business Area",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Organizational Operational Responsibility",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Organizational Operational Responsibility Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Business Process",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Business Process",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Lifecycle",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Lifecycle",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IT Asset Responsibilities - Strategic",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Strategic Responsibility Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IT Asset Responsibilities - Tactical",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Tactical Responsibility Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "IT Asset Responsibilities\t- Operational",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset Operational Responsibility Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "NIS/ISO Criticality",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IT Asset NIS/ISO Criticality",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "IT_asset_list",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "IT_asset_list_AzureSqlTable",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": [],

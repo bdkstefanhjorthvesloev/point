@@ -9,13 +9,19 @@
 					"referenceName": "qualiware_system_to_system pipeline",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "qualiware_IT Assets_pipeline_copy",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Hour",
-				"interval": 12,
+				"interval": 6,
 				"startTime": "2021-05-21T09:33:00",
 				"timeZone": "Romance Standard Time"
 			}
