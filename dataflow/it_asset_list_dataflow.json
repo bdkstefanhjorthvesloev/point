@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "it_asset_list_dataflow",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
