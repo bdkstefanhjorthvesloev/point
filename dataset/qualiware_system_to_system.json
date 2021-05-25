@@ -1,0 +1,47 @@
+{
+	"name": "qualiware_system_to_system",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "system to system",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Qualiware_Relations5.4.xlsx",
+				"container": "qualiwareextracts"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

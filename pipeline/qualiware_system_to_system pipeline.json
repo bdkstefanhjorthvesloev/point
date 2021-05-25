@@ -1,0 +1,155 @@
+{
+	"name": "qualiware_system_to_system pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy qualiware_system_to_system",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "UniqueID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Dataflow ID",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "From System",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "From IT Asset Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "From System ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "From IT Asset ID",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "To System",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "To IT Asset Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "To System ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "To IT Asset ID",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Link Description",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Data Message Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Link ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Data Message ID",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "Link Type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Data Message Qualiware Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "qualiware_system_to_system",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "QualiwareAzureSqlTable",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-05-21T11:53:12Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

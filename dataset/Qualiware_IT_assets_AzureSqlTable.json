@@ -1,0 +1,50 @@
+{
+	"name": "Qualiware_IT_assets_AzureSqlTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "IT Asset ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AuditCD",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Revision",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AuditCN",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GovernanceState",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ApprovalState",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OwnedBy",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Qualiware IT Assets"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

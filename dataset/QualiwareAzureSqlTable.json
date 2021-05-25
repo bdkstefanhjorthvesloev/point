@@ -1,0 +1,50 @@
+{
+	"name": "QualiwareAzureSqlTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Dataflow ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "From IT Asset ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "To IT Asset ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "From IT Asset Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "To IT Asset Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Data Message Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Data Message ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Data Message Qualiware Type",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "fact dataflow"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

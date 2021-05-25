@@ -1,0 +1,55 @@
+{
+	"name": "Qualiware_Systems",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Systems",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Qualiware_Relations5.4.xlsx",
+				"container": "qualiwareextracts"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "InformationSystem",
+				"type": "String"
+			},
+			{
+				"name": "AuditCD",
+				"type": "String"
+			},
+			{
+				"name": "Revision",
+				"type": "String"
+			},
+			{
+				"name": "AuditCN",
+				"type": "String"
+			},
+			{
+				"name": "GovernanceState",
+				"type": "String"
+			},
+			{
+				"name": "ApprovalState",
+				"type": "String"
+			},
+			{
+				"name": "OwnedBy",
+				"type": "String"
+			},
+			{
+				"name": "ObjID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
