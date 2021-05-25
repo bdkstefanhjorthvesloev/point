@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "IT_Asset_List_pipeline",
 	"properties": {
 		"activities": [
 			{
@@ -24,7 +24,9 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink"
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE [dbo].[stage.IT Assets]",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": true,

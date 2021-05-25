@@ -43,7 +43,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "fact dataflow"
+			"table": "stage.dataflows"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

@@ -1,5 +1,5 @@
 {
-	"name": "qualiware_IT Assets_pipeline_copy",
+	"name": "qualiware_IT Assets_pipeline",
 	"properties": {
 		"activities": [
 			{
@@ -25,7 +25,7 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "TRUNCATE TABLE [dbo].[Qualiware IT Assets]",
+						"preCopyScript": "TRUNCATE TABLE [dbo].[stage.Qualiware IT Assets]",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,

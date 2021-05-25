@@ -12,7 +12,7 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "qualiware_IT Assets_pipeline_copy",
+					"referenceName": "qualiware_IT Assets_pipeline",
 					"type": "PipelineReference"
 				}
 			}
