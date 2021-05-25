@@ -1,0 +1,162 @@
+{
+	"name": "IT_Asset_list",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "IT Asset liste",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "IT Assets MASTER (2) 20.05.2021.xlsx",
+				"container": "itasset"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "IT Asset ID",
+				"type": "String"
+			},
+			{
+				"name": "Title",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Description",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Type",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Business Area",
+				"type": "String"
+			},
+			{
+				"name": "Organizational Operational Responsibility",
+				"type": "String"
+			},
+			{
+				"name": "Business Process",
+				"type": "String"
+			},
+			{
+				"name": "Lifecycle",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Responsibilities - Strategic",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Responsibilities - Tactical",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Responsibilities\t- Operational",
+				"type": "String"
+			},
+			{
+				"name": "Til venstre er med i fase 1 data validering.",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Key Area",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Group",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Sub Group",
+				"type": "String"
+			},
+			{
+				"name": "CKBS kommentarer",
+				"type": "String"
+			},
+			{
+				"name": "NIS/ISO Criticality",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Owner Name",
+				"type": "String"
+			},
+			{
+				"name": "Teknisk System Ansvarlig",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Owner Division",
+				"type": "String"
+			},
+			{
+				"name": "IT Asset Owner Department",
+				"type": "String"
+			},
+			{
+				"name": "Interface ID",
+				"type": "String"
+			},
+			{
+				"name": "Singalprogram Flag",
+				"type": "String"
+			},
+			{
+				"name": "S og F-bane",
+				"type": "String"
+			},
+			{
+				"name": "Group 2",
+				"type": "String"
+			},
+			{
+				"name": "In Systemlandscape mapping",
+				"type": "String"
+			},
+			{
+				"name": "System ID",
+				"type": "String"
+			},
+			{
+				"name": "System Name",
+				"type": "String"
+			},
+			{
+				"name": "Verfied ",
+				"type": "String"
+			},
+			{
+				"name": "QualiwareID",
+				"type": "String"
+			},
+			{
+				"name": "Deleted",
+				"type": "String"
+			},
+			{
+				"name": "ISO/SAP",
+				"type": "String"
+			},
+			{
+				"name": "Dataklassifikation",
+				"type": "String"
+			},
+			{
+				"name": "Kommentar",
+				"type": "String"
+			},
+			{
+				"name": "Sidste kolonne i filter - tilføj nye kolonner til venstre for denne",
+				"type": "String"
+			}
+		]
+	}
+}

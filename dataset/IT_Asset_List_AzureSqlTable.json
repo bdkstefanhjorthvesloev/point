@@ -1,0 +1,73 @@
+{
+	"name": "IT_Asset_List_AzureSqlTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "IT Asset ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Qualiware IT Asset ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Business Area",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Organizational Operational Responsibility Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Business Process",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Lifecycle",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Strategic Responsibility Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Tactical Responsibility Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Operational Responsibility Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset NIS/ISO Criticality",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Asset Interface ID",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "dim IT Assets"
+		}
+	}
+}
