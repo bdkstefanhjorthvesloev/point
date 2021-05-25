@@ -24,7 +24,9 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink"
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE [dbo].[Qualiware IT Assets]",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"translator": {
