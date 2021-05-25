@@ -1,5 +1,5 @@
 {
-	"name": "IT_Asset_List_AzureSqlTable",
+	"name": "completeitassetlistAzureSqlTable",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
@@ -13,7 +13,7 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "IT Asset Qualiware IT Asset ID",
+				"name": "Qualiware IT Asset ID",
 				"type": "nvarchar"
 			},
 			{
@@ -67,7 +67,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "stage.IT Assets"
+			"table": "dim IT Assets"
 		}
 	}
 }

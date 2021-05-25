@@ -43,7 +43,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Qualiware IT Assets"
+			"table": "stage.Qualiware IT Assets"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
