@@ -13,7 +13,7 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "IT Asset Qualiware IT Asset ID",
+				"name": "Qualiware IT Asset ID",
 				"type": "nvarchar"
 			},
 			{
