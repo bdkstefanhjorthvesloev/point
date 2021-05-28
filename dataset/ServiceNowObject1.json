@@ -1,8 +1,0 @@
-{
-	"name": "ServiceNowObject1",
-	"properties": {
-		"annotations": [],
-		"type": "ServiceNowObject",
-		"schema": []
-	}
-}
