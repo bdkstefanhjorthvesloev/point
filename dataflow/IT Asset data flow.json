@@ -1,0 +1,31 @@
+{
+	"name": "IT Asset data flow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "IT_Asset_List_AzureSqlTable",
+						"type": "DatasetReference"
+					},
+					"name": "itassetlist"
+				},
+				{
+					"dataset": {
+						"referenceName": "Qualiware_IT_assets_AzureSqlTable",
+						"type": "DatasetReference"
+					},
+					"name": "qualiwareitassets"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "joinitassets"
+				}
+			],
+			"script": "source(output(\n\t\t{IT Asset ID} as string,\n\t\t{Qualiware IT Asset ID} as string,\n\t\t{IT Asset Name} as string,\n\t\t{IT Asset Description} as string,\n\t\t{IT Asset Type} as string,\n\t\t{IT Asset Business Area} as string,\n\t\t{IT Asset Organizational Operational Responsibility Name} as string,\n\t\t{IT Asset Business Process} as string,\n\t\t{IT Asset Lifecycle} as string,\n\t\t{IT Asset Strategic Responsibility Name} as string,\n\t\t{IT Asset Tactical Responsibility Name} as string,\n\t\t{IT Asset Operational Responsibility Name} as string,\n\t\t{IT Asset NIS/ISO Criticality} as string,\n\t\t{IT Asset Interface ID} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> itassetlist\nsource(output(\n\t\t{IT Asset ID} as string,\n\t\t{IT Asset Name} as string,\n\t\tAuditCD as string,\n\t\tRevision as string,\n\t\tAuditCN as string,\n\t\tGovernanceState as string,\n\t\tApprovalState as string,\n\t\tOwnedBy as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> qualiwareitassets\nitassetlist, qualiwareitassets join({Qualiware IT Asset ID} == qualiwareitassets@{IT Asset ID},\n\tjoinType:'left',\n\tbroadcast: 'auto')~> joinitassets"
+		}
+	}
+}
