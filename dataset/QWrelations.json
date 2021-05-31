@@ -1,0 +1,56 @@
+{
+	"name": "QWrelations",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "relation.txt",
+				"container": "qualiwareextracts"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "UniqueID",
+				"type": "String"
+			},
+			{
+				"name": "From System",
+				"type": "String"
+			},
+			{
+				"name": "From System ID",
+				"type": "String"
+			},
+			{
+				"name": "To System",
+				"type": "String"
+			},
+			{
+				"name": "To System ID",
+				"type": "String"
+			},
+			{
+				"name": "Link Description",
+				"type": "String"
+			},
+			{
+				"name": "Link ID",
+				"type": "String"
+			},
+			{
+				"name": "Link Type",
+				"type": "String"
+			}
+		]
+	}
+}
