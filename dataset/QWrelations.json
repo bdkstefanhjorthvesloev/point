@@ -2,16 +2,15 @@
 	"name": "QWrelations",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "bdk_point_AzureBlobStorage",
+			"referenceName": "linkedService1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"fileName": "relation.txt",
-				"container": "qualiwareextracts"
+				"type": "AzureFileStorageLocation",
+				"fileName": "relation.txt"
 			},
 			"columnDelimiter": ";",
 			"escapeChar": "\"",
