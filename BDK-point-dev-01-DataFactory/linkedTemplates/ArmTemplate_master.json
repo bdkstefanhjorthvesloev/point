@@ -15,6 +15,26 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'bdk_point_dev_01_DataBase_linked_service'"
 		},
+		"faulttoleranceloglinkedservice_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'faulttoleranceloglinkedservice'"
+		},
+		"ServiceNow1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ServiceNow1'"
+		},
+		"linkedService1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'linkedService1'"
+		},
+		"ServiceNow1_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://banedkdev.service-now.com"
+		},
+		"ServiceNow1_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "AzureDataConnector"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -47,10 +67,45 @@
 					},
 					"bdk_point_dev_01_DataBase_linked_service_connectionString": {
 						"value": "[parameters('bdk_point_dev_01_DataBase_linked_service_connectionString')]"
+					},
+					"faulttoleranceloglinkedservice_connectionString": {
+						"value": "[parameters('faulttoleranceloglinkedservice_connectionString')]"
+					},
+					"ServiceNow1_password": {
+						"value": "[parameters('ServiceNow1_password')]"
+					},
+					"linkedService1_connectionString": {
+						"value": "[parameters('linkedService1_connectionString')]"
+					},
+					"ServiceNow1_properties_typeProperties_endpoint": {
+						"value": "[parameters('ServiceNow1_properties_typeProperties_endpoint')]"
+					},
+					"ServiceNow1_properties_typeProperties_username": {
+						"value": "[parameters('ServiceNow1_properties_typeProperties_username')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "BDK-point-dev-01-DataFactory_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'BDK-point-dev-01-DataFactory_ArmTemplate_0')]"
+			]
 		}
 	]
 }

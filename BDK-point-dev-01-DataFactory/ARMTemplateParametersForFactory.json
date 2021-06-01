@@ -10,6 +10,21 @@
 		},
 		"bdk_point_dev_01_DataBase_linked_service_connectionString": {
 			"value": ""
+		},
+		"faulttoleranceloglinkedservice_connectionString": {
+			"value": ""
+		},
+		"ServiceNow1_password": {
+			"value": ""
+		},
+		"linkedService1_connectionString": {
+			"value": ""
+		},
+		"ServiceNow1_properties_typeProperties_endpoint": {
+			"value": "https://banedkdev.service-now.com"
+		},
+		"ServiceNow1_properties_typeProperties_username": {
+			"value": "AzureDataConnector"
 		}
 	}
 }
