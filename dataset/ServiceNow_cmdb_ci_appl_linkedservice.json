@@ -1,5 +1,5 @@
 {
-	"name": "ServiceNowObject1",
+	"name": "ServiceNow_cmdb_ci_appl_linkedservice",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ServiceNow1",
