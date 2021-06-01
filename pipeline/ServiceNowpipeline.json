@@ -1,0 +1,207 @@
+{
+	"name": "ServiceNowpipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Service Now Copy Data",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ServiceNowSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "sys_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "subcategory_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "subcategory_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "short_description_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "short_description_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "comments_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "comments_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "category_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "category_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "operational_status_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "operational_status_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_created_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_updated_on_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "company_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "company_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "managed_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "managed_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "vendor_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "vendor_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "supported_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "supported_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "owned_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "owned_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ServiceNowObject1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

@@ -1,0 +1,93 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "sys_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "subcategory_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_created_on_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_class_name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "owned_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "company_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "comments_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "vendor_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "supported_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "used_for_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "short_description_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_created_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_updated_on_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "category_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_updated_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "managed_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "operational_status_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "model_by_value",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "stage.ServiceNow_cmdb_ci_appl"
+		}
+	}
+}
