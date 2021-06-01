@@ -15,9 +15,6 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "ServiceNowSource"
-					},
 					"sink": {
 						"type": "AzureSqlSink",
 						"disableMetricsCollection": false
@@ -33,8 +30,7 @@
 								},
 								"sink": {
 									"name": "sys_id_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -44,8 +40,7 @@
 								},
 								"sink": {
 									"name": "name_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -55,8 +50,7 @@
 								},
 								"sink": {
 									"name": "subcategory_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -66,8 +60,7 @@
 								},
 								"sink": {
 									"name": "short_description_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -77,8 +70,7 @@
 								},
 								"sink": {
 									"name": "comments_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -88,8 +80,7 @@
 								},
 								"sink": {
 									"name": "category_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -99,8 +90,7 @@
 								},
 								"sink": {
 									"name": "operational_status_value",
-									"type": "Int32",
-									"physicalType": "int"
+									"type": "Int32"
 								}
 							},
 							{
@@ -110,8 +100,7 @@
 								},
 								"sink": {
 									"name": "sys_created_by_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -121,8 +110,7 @@
 								},
 								"sink": {
 									"name": "sys_updated_on_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -132,8 +120,7 @@
 								},
 								"sink": {
 									"name": "company_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -143,8 +130,7 @@
 								},
 								"sink": {
 									"name": "managed_by_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -154,8 +140,7 @@
 								},
 								"sink": {
 									"name": "vendor_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -165,8 +150,7 @@
 								},
 								"sink": {
 									"name": "supported_by_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							},
 							{
@@ -176,24 +160,12 @@
 								},
 								"sink": {
 									"name": "owned_by_value",
-									"type": "String",
-									"physicalType": "nvarchar"
+									"type": "String"
 								}
 							}
-						],
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						]
 					}
 				},
-				"inputs": [
-					{
-						"referenceName": "ServiceNowObject1",
-						"type": "DatasetReference"
-					}
-				],
 				"outputs": [
 					{
 						"referenceName": "stage_ServiceNow_cmdb_ci_appl",
