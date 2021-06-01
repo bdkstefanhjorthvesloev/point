@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "stage_ServiceNow_cmdb_ci_appl",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "bdk_point_dev_01_DataBase_linked_service",

@@ -196,7 +196,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "stage_ServiceNow_cmdb_ci_appl",
 						"type": "DatasetReference"
 					}
 				]
