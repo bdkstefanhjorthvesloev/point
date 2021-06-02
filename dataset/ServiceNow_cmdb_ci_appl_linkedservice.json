@@ -9,7 +9,7 @@
 		"type": "ServiceNowObject",
 		"schema": [],
 		"typeProperties": {
-			"tableName": "\"Actual\".\"sys_user\""
+			"tableName": "\"Actual\".\"cmdb_ci_appl\""
 		}
 	}
 }
