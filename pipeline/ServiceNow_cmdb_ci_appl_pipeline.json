@@ -16,7 +16,9 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "ServiceNowSource"
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "AzureSqlSink",
@@ -191,7 +193,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
+						"referenceName": "stageservicenowcmdbciappl",
 						"type": "DatasetReference"
 					}
 				],
