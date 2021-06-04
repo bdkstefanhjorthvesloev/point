@@ -1,0 +1,70 @@
+{
+	"name": "Excel1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "All faults",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "messagestats maj f-bane.xlsx",
+				"container": "messagestats"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": [
+			{
+				"name": "Message id",
+				"type": "String"
+			},
+			{
+				"name": "Event",
+				"type": "String"
+			},
+			{
+				"name": "Service",
+				"type": "String"
+			},
+			{
+				"name": "Receiver",
+				"type": "String"
+			},
+			{
+				"name": "Operation",
+				"type": "String"
+			},
+			{
+				"name": "Sender id",
+				"type": "String"
+			},
+			{
+				"name": "Fault reason",
+				"type": "String"
+			},
+			{
+				"name": "Timestamp",
+				"type": "String"
+			},
+			{
+				"name": "Outbound URI",
+				"type": "String"
+			},
+			{
+				"name": "HTTP Response Code",
+				"type": "String"
+			},
+			{
+				"name": "HTTP Response Message",
+				"type": "String"
+			},
+			{
+				"name": "Cil Version",
+				"type": "String"
+			}
+		]
+	}
+}

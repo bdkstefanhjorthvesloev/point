@@ -1,0 +1,202 @@
+{
+	"name": "messagepipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "message fbane copy",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ExcelSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"tableOption": "autoCreate"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Message id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Message id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Event",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Event",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Service",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Service",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Receiver",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Receiver",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Operation",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Operation",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sender id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sender id",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Fault reason",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Fault reason",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Timestamp",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Timestamp",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Outbound URI",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Outbound URI",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HTTP Response Code",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "HTTP Response Code",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HTTP Response Message",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "HTTP Response Message",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Cil Version",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Cil Version",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Excel1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
