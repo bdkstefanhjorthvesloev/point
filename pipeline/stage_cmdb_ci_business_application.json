@@ -20,6 +20,7 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE [stage].[cmdb_ci_business_application]",
 						"tableOption": "autoCreate",
 						"disableMetricsCollection": false
 					},

@@ -22,7 +22,7 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "TRUNCATE TABLE [dbo].[stage.cmdb_ci_appl]",
+						"preCopyScript": "TRUNCATE TABLE [stage].[cmdb_ci_appl]",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
