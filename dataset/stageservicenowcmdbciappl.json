@@ -7,10 +7,354 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "po_number_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "running_process_parameters_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "vendor_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "checked_in_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "supported_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_created_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "checked_out_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "discovery_source_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "serial_number_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "mac_address_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "running_process_key_parameters_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "tcp_port_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "used_for_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "first_discovered_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "sys_class_name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "can_print_value",
+				"type": "bit"
+			},
+			{
+				"name": "cost_cc_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "invoice_number_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "correlation_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "owned_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "assigned_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "cost_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "is_clustered_value",
+				"type": "bit"
+			},
+			{
+				"name": "company_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gl_account_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "dns_domain_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "comments_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "config_file_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_domain_path_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "edition_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "due_in_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "short_description_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "model_number_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "running_process_command_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_tags_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_mod_count_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "location_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "warranty_expiration_value",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "sys_created_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_updated_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "install_status_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "asset_tag_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "cost_center_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "fqdn_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "category_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "pid_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "due_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "sys_updated_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "managed_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "attributes_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "operational_status_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "skip_sync_value",
+				"type": "bit"
+			},
+			{
+				"name": "support_group_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "maintenance_schedule_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "department_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "manufacturer_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "lease_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "subcategory_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "asset_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "schedule_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "install_directory_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "justification_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "delivery_date_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "version_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "install_date_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "assigned_to_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "order_date_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "last_discovered_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "config_directory_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ip_address_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_domain_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "fault_count_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "start_date_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "assignment_group_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "unverified_value",
+				"type": "bit"
+			},
+			{
+				"name": "model_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "change_control_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "monitor_value",
+				"type": "bit"
+			},
+			{
+				"name": "purchase_date_value",
+				"type": "datetime2",
+				"scale": 0
+			}
+		],
 		"typeProperties": {
 			"schema": "stage",
-			"table": "servicenow_cmdb_ci_appl"
+			"table": "cmdb_ci_appl"
 		}
 	}
 }
