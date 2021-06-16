@@ -1,5 +1,5 @@
 {
-	"name": "ServiceNow_cmdb_ci_appl_pipeline",
+	"name": "stage_sn_cmdb_ci_appl_pipeline",
 	"properties": {
 		"activities": [
 			{
