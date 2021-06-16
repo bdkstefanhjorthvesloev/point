@@ -86,8 +86,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dbo",
-			"table": "stage.ServiceNow_cmdb_ci_appl"
+			"schema": "stage",
+			"table": "cmdb_ci_appl"
 		}
 	}
 }
