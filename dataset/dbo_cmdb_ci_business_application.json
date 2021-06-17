@@ -1,0 +1,121 @@
+{
+	"name": "dbo_cmdb_ci_business_application",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "sys_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "short_description_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "operational_status_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sys_updated_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "install_type_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_created_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "owned_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "life_cycle_stage_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_class_name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "contract_end_date_value",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "data_classification_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "vendor_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "life_cycle_stage_status_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "certified_value",
+				"type": "bit"
+			},
+			{
+				"name": "business_criticality_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "u_contract_manager_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "support_vendor_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_updated_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_created_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "sys_domain_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "emergency_tier_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "company_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "department_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "u_cat2classified_value",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "cmdb_ci_business_application"
+		}
+	}
+}
