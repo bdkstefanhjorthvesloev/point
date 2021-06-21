@@ -277,378 +277,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/IT_Asset_list_pipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "IT assets dataflow",
-						"type": "ExecuteDataFlow",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataflow": {
-								"referenceName": "IT Asset data flow",
-								"type": "DataFlowReference",
-								"parameters": {},
-								"datasetParameters": {
-									"itassetlist": {},
-									"qualiwareitassets": {},
-									"sink1": {}
-								}
-							},
-							"staging": {},
-							"compute": {
-								"coreCount": 8,
-								"computeType": "General"
-							},
-							"traceLevel": "Fine"
-						}
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/dataflows/IT Asset data flow')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/qualiware_IT Assets_pipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy qualiware_system_to_system",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ExcelSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE [dbo].[stage.Qualiware IT Assets]",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "ObjID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset ID",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "InformationSystem",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "AuditCD",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "AuditCD",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Revision",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Revision",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "AuditCN",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "AuditCN",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "GovernanceState",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "GovernanceState",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "ApprovalState",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "ApprovalState",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "OwnedBy",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "OwnedBy",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "Qualiware_Systems",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Qualiware_IT_assets_AzureSqlTable",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": [],
-				"lastPublishTime": "2021-05-21T11:53:13Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Qualiware_Systems')]",
-				"[concat(variables('factoryId'), '/datasets/Qualiware_IT_assets_AzureSqlTable')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/qualiware_system_to_system pipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy qualiware_system_to_system",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ExcelSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE [dbo].[stage.dataflows]",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "UniqueID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Dataflow ID",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "From System",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "From IT Asset Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "From System ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "From IT Asset ID",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "To System",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "To IT Asset Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "To System ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "To IT Asset ID",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "Link Description",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Data Message Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Link ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Data Message ID",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "Link Type",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Data Message Qualiware Type",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "qualiware_system_to_system",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "QualiwareAzureSqlTable",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": [],
-				"lastPublishTime": "2021-05-21T11:53:12Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/qualiware_system_to_system')]",
-				"[concat(variables('factoryId'), '/datasets/QualiwareAzureSqlTable')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/IT_Asset_List_AzureSqlTable')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -1221,23 +849,8 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "qualiware_system_to_system pipeline",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					},
-					{
-						"pipelineReference": {
-							"referenceName": "qualiware_IT Assets_pipeline",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
+				"runtimeState": "Stopped",
+				"pipelines": [],
 				"type": "ScheduleTrigger",
 				"typeProperties": {
 					"recurrence": {
@@ -1248,224 +861,7 @@
 					}
 				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/qualiware_system_to_system pipeline')]",
-				"[concat(variables('factoryId'), '/pipelines/qualiware_IT Assets_pipeline')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/IT Asset data flow')]",
-			"type": "Microsoft.DataFactory/factories/dataflows",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "MappingDataFlow",
-				"typeProperties": {
-					"sources": [
-						{
-							"dataset": {
-								"referenceName": "IT_Asset_List_AzureSqlTable",
-								"type": "DatasetReference"
-							},
-							"name": "itassetlist"
-						},
-						{
-							"dataset": {
-								"referenceName": "Qualiware_IT_assets_AzureSqlTable",
-								"type": "DatasetReference"
-							},
-							"name": "qualiwareitassets"
-						}
-					],
-					"sinks": [
-						{
-							"dataset": {
-								"referenceName": "completeitassetlistAzureSqlTable",
-								"type": "DatasetReference"
-							},
-							"name": "sink1"
-						}
-					],
-					"transformations": [
-						{
-							"name": "joinitassets"
-						}
-					],
-					"script": "source(output(\n\t\t{IT Asset ID} as string,\n\t\t{Qualiware IT Asset ID} as string,\n\t\t{IT Asset Name} as string,\n\t\t{IT Asset Description} as string,\n\t\t{IT Asset Type} as string,\n\t\t{IT Asset Business Area} as string,\n\t\t{IT Asset Organizational Operational Responsibility Name} as string,\n\t\t{IT Asset Business Process} as string,\n\t\t{IT Asset Lifecycle} as string,\n\t\t{IT Asset Strategic Responsibility Name} as string,\n\t\t{IT Asset Tactical Responsibility Name} as string,\n\t\t{IT Asset Operational Responsibility Name} as string,\n\t\t{IT Asset NIS/ISO Criticality} as string,\n\t\t{IT Asset Interface ID} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> itassetlist\nsource(output(\n\t\t{IT Asset ID} as string,\n\t\t{IT Asset Name} as string,\n\t\tAuditCD as string,\n\t\tRevision as string,\n\t\tAuditCN as string,\n\t\tGovernanceState as string,\n\t\tApprovalState as string,\n\t\tOwnedBy as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> qualiwareitassets\nitassetlist, qualiwareitassets join({Qualiware IT Asset ID} == qualiwareitassets@{IT Asset ID},\n\tjoinType:'left',\n\tbroadcast: 'auto')~> joinitassets\njoinitassets sink(input(\n\t\t{IT Asset ID} as string,\n\t\t{Qualiware IT Asset ID} as string,\n\t\t{IT Asset Name} as string,\n\t\t{IT Asset Description} as string,\n\t\t{IT Asset Type} as string,\n\t\t{IT Asset Business Area} as string,\n\t\t{IT Asset Organizational Operational Responsibility Name} as string,\n\t\t{IT Asset Business Process} as string,\n\t\t{IT Asset Lifecycle} as string,\n\t\t{IT Asset Strategic Responsibility Name} as string,\n\t\t{IT Asset Tactical Responsibility Name} as string,\n\t\t{IT Asset Operational Responsibility Name} as string,\n\t\t{IT Asset NIS/ISO Criticality} as string,\n\t\t{IT Asset Interface ID} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tpreSQLs:['TRUNCATE TABLE [dbo].[dim IT Assets]'],\n\tmapColumn(\n\t\t{IT Asset ID} = itassetlist@{IT Asset ID},\n\t\t{Qualiware IT Asset ID},\n\t\t{IT Asset Name} = itassetlist@{IT Asset Name},\n\t\t{IT Asset Description},\n\t\t{IT Asset Type},\n\t\t{IT Asset Business Area},\n\t\t{IT Asset Organizational Operational Responsibility Name},\n\t\t{IT Asset Business Process},\n\t\t{IT Asset Lifecycle},\n\t\t{IT Asset Strategic Responsibility Name},\n\t\t{IT Asset Tactical Responsibility Name},\n\t\t{IT Asset Operational Responsibility Name},\n\t\t{IT Asset NIS/ISO Criticality},\n\t\t{IT Asset Interface ID}\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/IT_Asset_List_AzureSqlTable')]",
-				"[concat(variables('factoryId'), '/datasets/Qualiware_IT_assets_AzureSqlTable')]",
-				"[concat(variables('factoryId'), '/datasets/completeitassetlistAzureSqlTable')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/QWrelation_pipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy data1",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureFileStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE [dbo].[stage.QWrelations]",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"enableSkipIncompatibleRow": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "UniqueID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "UniqueID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "From System",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "From System",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "From System ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "From System ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "To System",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "To System",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "To System ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "To System ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Link Description",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Link Description",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Link ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Link ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Link Type",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Link Type",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "QWrelations",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "QWrelationsAzureSqlTable",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/QWrelations')]",
-				"[concat(variables('factoryId'), '/datasets/QWrelationsAzureSqlTable')]",
-				"[concat(variables('factoryId'), '/linkedServices/faulttoleranceloglinkedservice')]"
-			]
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/QWrelations')]",
@@ -2246,7 +1642,7 @@
 				"type": "ServiceNowObject",
 				"schema": [],
 				"typeProperties": {
-					"tableName": "\"Actual\".\"cmdb_ci_business_app\""
+					"tableName": "\"Actual\".\"sys_user\""
 				}
 			},
 			"dependsOn": [
@@ -4584,18 +3980,6 @@
 									},
 									{
 										"source": {
-											"name": "u_contract_manager_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Contract Manager Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
 											"name": "contract_end_date_value",
 											"type": "DateTime",
 											"physicalType": "datetime2"
@@ -4626,6 +4010,18 @@
 										},
 										"sink": {
 											"name": "Business Application Emergency Tier",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "u_contract_manager_value",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Business Application Contract Manager Name",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -4674,6 +4070,30 @@
 										},
 										"sink": {
 											"name": "Business Application Domain",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "install_status_value",
+											"type": "Int32",
+											"physicalType": "int"
+										},
+										"sink": {
+											"name": "Business Application Install Status",
+											"type": "Int32",
+											"physicalType": "int"
+										}
+									},
+									{
+										"source": {
+											"name": "apm_business_process_value",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Business Application Business Process",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -4782,6 +4202,18 @@
 										},
 										"sink": {
 											"name": "Business Application Department ID",
+											"type": "String",
+											"physicalType": "nvarchar"
+										}
+									},
+									{
+										"source": {
+											"name": "it_application_owner_value",
+											"type": "String",
+											"physicalType": "nvarchar"
+										},
+										"sink": {
+											"name": "Business Application Owner ID",
 											"type": "String",
 											"physicalType": "nvarchar"
 										}
@@ -4937,6 +4369,387 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "cmdb_ci_business_application"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/bdk_point_dev_01_DataBase_linked_service')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_cmdb_ci')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "stage_cmdb_ci_copy",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "ServiceNowSource"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "stage_cmdb_ci",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/ServiceNow_cmdb_ci_appl_linkedservice')]",
+				"[concat(variables('factoryId'), '/datasets/stage_cmdb_ci')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_cmdb_ci')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "stage",
+					"table": "cmdb_ci"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/bdk_point_dev_01_DataBase_linked_service')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_cmdb_pipeline')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "stage_cmdb_copy",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "ServiceNowSource"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "stage_cmdb",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/ServiceNow_cmdb_ci_appl_linkedservice')]",
+				"[concat(variables('factoryId'), '/datasets/stage_cmdb')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_cmdb')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "stage",
+					"table": "cmdb"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/bdk_point_dev_01_DataBase_linked_service')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_sys_user_pipeline')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "stage_sys_user_pipeline",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "ServiceNowSource"
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "stage_sys_user",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/ServiceNow_cmdb_ci_appl_linkedservice')]",
+				"[concat(variables('factoryId'), '/datasets/stage_sys_user')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_sys_user')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "stage",
+					"table": "sys_user"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/bdk_point_dev_01_DataBase_linked_service')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_qw_relations')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "qw_relations_7",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "ExcelSource",
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
+								}
+							},
+							"sink": {
+								"type": "AzureSqlSink",
+								"tableOption": "autoCreate"
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true,
+								"typeConversionSettings": {
+									"allowDataTruncation": true,
+									"treatBooleanAsNumber": false
+								}
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "qw_relations_7",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "stage_qw_relations",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/qw_relations_7')]",
+				"[concat(variables('factoryId'), '/datasets/stage_qw_relations')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/qw_relations_7')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_AzureBlobStorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": "Ark1",
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "QW_Relations_7.xlsx",
+						"container": "qualiwareextracts"
+					}
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/bdk_point_AzureBlobStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_qw_relations')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "stage",
+					"table": "qw_relations"
 				}
 			},
 			"dependsOn": [
