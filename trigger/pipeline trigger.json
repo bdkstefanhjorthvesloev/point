@@ -6,12 +6,6 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "qualiware_system_to_system pipeline",
-					"type": "PipelineReference"
-				}
-			},
-			{
-				"pipelineReference": {
 					"referenceName": "qualiware_IT Assets_pipeline",
 					"type": "PipelineReference"
 				}
