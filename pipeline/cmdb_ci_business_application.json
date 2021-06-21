@@ -137,18 +137,6 @@
 							},
 							{
 								"source": {
-									"name": "u_contract_manager_value",
-									"type": "String",
-									"physicalType": "nvarchar"
-								},
-								"sink": {
-									"name": "Business Application Contract Manager Name",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
 									"name": "contract_end_date_value",
 									"type": "DateTime",
 									"physicalType": "datetime2"
@@ -179,6 +167,18 @@
 								},
 								"sink": {
 									"name": "Business Application Emergency Tier",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_contract_manager_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Business Application Contract Manager Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -227,6 +227,30 @@
 								},
 								"sink": {
 									"name": "Business Application Domain",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "install_status_value",
+									"type": "Int32",
+									"physicalType": "int"
+								},
+								"sink": {
+									"name": "Business Application Install Status",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "apm_business_process_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Business Application Business Process",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -335,6 +359,18 @@
 								},
 								"sink": {
 									"name": "Business Application Department ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "it_application_owner_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Business Application Owner ID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
