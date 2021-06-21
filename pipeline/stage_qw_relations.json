@@ -25,11 +25,134 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"tableOption": "autoCreate"
+						"preCopyScript": "TRUNCATE TABLE [stage].[qw_relations]",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "UniqueID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "UniqueID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "CodeRevision",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CodeRevision",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Timestamp",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Timestamp",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "From System",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "From System",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "From System ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "From System ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "To System",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "To System",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "To System ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "To System ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Link Description",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Link Description",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Link ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Link ID",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Link Type",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Link Type",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,

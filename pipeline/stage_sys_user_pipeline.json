@@ -20,11 +20,773 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"tableOption": "autoCreate"
+						"preCopyScript": "TRUNCATE TABLE [stage].[sys_user]",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "employee_number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "employee_number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "preferred_language_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "preferred_language_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_created_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "date_format_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "date_format_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "notification_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "notification_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_class_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_class_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "mobile_phone_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "mobile_phone_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "web_service_access_only_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "web_service_access_only_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "last_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "last_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "company_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "company_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "active_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "active_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "last_login_time_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "last_login_time_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "failed_attempts_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "failed_attempts_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_domain_path_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_domain_path_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "schedule_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "schedule_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "default_perspective_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "default_perspective_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "password_needs_reset_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "password_needs_reset_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_mod_count_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "sys_mod_count_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_created_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "user_password_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "user_password_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "locked_out_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "locked_out_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "cost_center_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cost_center_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_login_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "last_login_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "ldap_server_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ldap_server_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sso_source_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sso_source_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gender_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "gender_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "user_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "user_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "time_zone_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "time_zone_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "middle_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "middle_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "internal_integration_user_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "internal_integration_user_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_updated_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "time_format_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "time_format_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "street_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "street_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "phone_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "phone_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "vip_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "vip_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "state_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "state_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "photo_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "photo_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_tags_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_tags_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "department_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "department_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "introduction_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "introduction_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "title_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "title_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "building_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "building_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "first_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "first_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_domain_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_domain_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "zip_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "zip_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "email_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "email_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "manager_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "manager_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "location_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "location_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "source_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "country_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "country_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "city_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "city_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "roles_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "roles_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "home_phone_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "home_phone_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "calendar_integration_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "calendar_integration_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "last_login_device_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "last_login_device_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_snow_org_checksum_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_snow_org_checksum_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_snow_user_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_snow_user_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "enable_multifactor_authn_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "enable_multifactor_authn_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_domain_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_domain_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "time_sheet_policy_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "time_sheet_policy_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "average_daily_fte_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "average_daily_fte_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_password_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "last_password_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "edu_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "edu_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_snow_organization_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_snow_organization_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "avatar_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "avatar_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_employee_certification_nets_consent_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "u_employee_certification_nets_consent_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
