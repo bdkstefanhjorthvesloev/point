@@ -1,0 +1,89 @@
+{
+	"name": "Usertable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "User ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Full Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User First Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Last Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Title",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Department",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Employee Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Mobile Phone Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Phone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Company",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Active Flag",
+				"type": "bit"
+			},
+			{
+				"name": "User Location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Street Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Zip Code",
+				"type": "nvarchar"
+			},
+			{
+				"name": "User Manager ID",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "User"
+		}
+	}
+}
