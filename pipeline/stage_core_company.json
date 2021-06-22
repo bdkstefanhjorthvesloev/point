@@ -1,0 +1,571 @@
+{
+	"name": "stage_core_company",
+	"properties": {
+		"activities": [
+			{
+				"name": "CompanyCopy",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ServiceNowSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE [stage].[core_company]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "sso_source_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sso_source_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "zip_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "zip_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "state_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "state_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "customer_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "customer_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_created_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "theme_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "theme_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "notes_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "notes_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "longitude_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "longitude_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_updated_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "revenue_per_year_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "revenue_per_year_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "street_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "street_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "phone_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "phone_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "discount_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discount_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "city_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "city_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "rank_tier_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "rank_tier_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "primary_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "primary_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_tags_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_tags_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_class_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_class_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "stock_symbol_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "stock_symbol_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "parent_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "parent_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "contact_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "contact_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "stock_price_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "stock_price_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "manufacturer_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "manufacturer_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "vendor_manager_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "vendor_manager_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "fax_phone_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "fax_phone_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "fiscal_year_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "fiscal_year_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "vendor_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "vendor_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "publicly_traded_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "publicly_traded_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "latitude_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "latitude_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "lat_long_error_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "lat_long_error_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_mod_count_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "sys_mod_count_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "num_employees_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "num_employees_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "vendor_type_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "vendor_type_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "country_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "country_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "banner_image_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "banner_image_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "market_cap_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "market_cap_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "website_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "website_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "profits_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "profits_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_created_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "banner_image_light_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "banner_image_light_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "apple_icon_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "apple_icon_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_catal_snow_manufacturer_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_catal_snow_manufacturer_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "banner_text_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "banner_text_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "coordinates_retrieved_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "coordinates_retrieved_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "core_company_table",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
