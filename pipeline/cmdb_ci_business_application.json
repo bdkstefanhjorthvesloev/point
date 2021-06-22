@@ -139,6 +139,18 @@
 							},
 							{
 								"source": {
+									"name": "u_contract_manager_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								},
+								"sink": {
+									"name": "Business Application Contract Manager Name",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
 									"name": "contract_end_date_value",
 									"type": "DateTime",
 									"physicalType": "datetime2"
@@ -169,18 +181,6 @@
 								},
 								"sink": {
 									"name": "Business Application Emergency Tier",
-									"type": "String",
-									"physicalType": "nvarchar"
-								}
-							},
-							{
-								"source": {
-									"name": "u_contract_manager_value",
-									"type": "String",
-									"physicalType": "nvarchar"
-								},
-								"sink": {
-									"name": "Business Application Contract Manager Name",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -312,7 +312,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Business Application Owned by ID",
+									"name": "Business Application Business Owner ID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -372,7 +372,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Business Application Owner ID",
+									"name": "Business Application IT Application Owner ID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
