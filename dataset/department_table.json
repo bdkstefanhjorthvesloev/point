@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable2",
+	"name": "department_table",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
