@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "Data_Flows",
+						"referenceName": "AzureSqlTable2",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -29,7 +29,7 @@
 					"name": "Filter1"
 				}
 			],
-			"script": "source(output(\n\t\t{Data Flow ID} as string,\n\t\t{Data Flow Code Revision} as string,\n\t\t{Data Flow Timestamp} as string,\n\t\t{Data Flow From System} as string,\n\t\t{Data Flow From System ID} as string,\n\t\t{Data Flow To System} as string,\n\t\t{Data Flow To System ID} as string,\n\t\t{Data Flow Link Description} as string,\n\t\t{Data Flow Link ID} as string,\n\t\t{Data Flow Link Type} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source1\nsource1 sort(asc({Data Flow Link Description}, true)) ~> Sort1\nSort1 filter({Data Flow Link Description}!=\"041 - TMSInvalidMessage\") ~> Filter1\nFilter1 sink(input(\n\t\t{Data Flow ID} as string,\n\t\t{Data Flow Code Revision} as string,\n\t\t{Data Flow Timestamp} as string,\n\t\t{Data Flow From System} as string,\n\t\t{Data Flow From System ID} as string,\n\t\t{Data Flow To System} as string,\n\t\t{Data Flow To System ID} as string,\n\t\t{Data Flow Link Description} as string,\n\t\t{Data Flow Link ID} as string,\n\t\t{Data Flow Link Type} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
+			"script": "source(output(\n\t\t{Data Flow ID} as string,\n\t\t{Data Flow Code Revision} as string,\n\t\t{Data Flow Timestamp} as string,\n\t\t{Data Flow From System} as string,\n\t\t{Data Flow From System ID} as string,\n\t\t{Data Flow To System} as string,\n\t\t{Data Flow To System ID} as string,\n\t\t{Data Flow Link Description} as string,\n\t\t{Data Flow Link ID} as string,\n\t\t{Data Flow Link Type} as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> source1\nsource1 sort(asc({Data Flow Link Description}, true)) ~> Sort1\nSort1 filter({Data Flow Link Description}!=\"041 - TMSInvalidMessage\") ~> Filter1\nFilter1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\terrorHandlingOption: 'stopOnFirstError') ~> sink1"
 		}
 	}
 }
