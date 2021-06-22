@@ -9,7 +9,7 @@
 		"type": "ServiceNowObject",
 		"schema": [],
 		"typeProperties": {
-			"tableName": "\"Actual\".\"core_company\""
+			"tableName": "\"Actual\".\"cmn_department\""
 		}
 	}
 }
