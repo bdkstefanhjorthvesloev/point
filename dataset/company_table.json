@@ -1,0 +1,59 @@
+{
+	"name": "company_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Company ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company Street",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company Phone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company Class Name ",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company sys_created_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "Company sys_created_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company sys_updated_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Company sys_updated_on_value",
+				"type": "datetime2",
+				"scale": 6
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Company"
+		}
+	}
+}
