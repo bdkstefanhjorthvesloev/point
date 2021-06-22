@@ -9,108 +9,125 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "sys_id_value",
+				"name": "Business Application ID",
 				"type": "nvarchar"
 			},
 			{
-				"name": "name_value",
+				"name": "Business Application Number",
 				"type": "nvarchar"
 			},
 			{
-				"name": "short_description_value",
+				"name": "Business Application Name",
 				"type": "nvarchar"
 			},
 			{
-				"name": "operational_status_value",
-				"type": "int",
-				"precision": 10
-			},
-			{
-				"name": "sys_updated_on_value",
-				"type": "datetime2",
-				"scale": 6
-			},
-			{
-				"name": "install_type_value",
+				"name": "Business Application Description",
 				"type": "nvarchar"
 			},
 			{
-				"name": "sys_created_by_value",
+				"name": "Business Application Criticality",
 				"type": "nvarchar"
 			},
 			{
-				"name": "owned_by_value",
+				"name": "Business Application Life Cycle Stage",
 				"type": "nvarchar"
 			},
 			{
-				"name": "life_cycle_stage_value",
+				"name": "Business Application Class Name",
 				"type": "nvarchar"
 			},
 			{
-				"name": "sys_class_name_value",
+				"name": "Business Application Data Classification",
 				"type": "nvarchar"
 			},
 			{
-				"name": "contract_end_date_value",
+				"name": "Business Application Life Cycle Stage Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Contract Manager Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Contract End Date",
 				"type": "datetime2",
 				"scale": 0
 			},
 			{
-				"name": "data_classification_value",
-				"type": "nvarchar"
-			},
-			{
-				"name": "vendor_value",
-				"type": "nvarchar"
-			},
-			{
-				"name": "life_cycle_stage_status_value",
-				"type": "nvarchar"
-			},
-			{
-				"name": "certified_value",
+				"name": "Business Application Certified",
 				"type": "bit"
 			},
 			{
-				"name": "business_criticality_value",
+				"name": "Business Application Emergency Tier",
 				"type": "nvarchar"
 			},
 			{
-				"name": "u_contract_manager_value",
+				"name": "Business Application Cat2 Classified",
+				"type": "bit"
+			},
+			{
+				"name": "Business Application Operational Status",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Business Application Install Type",
 				"type": "nvarchar"
 			},
 			{
-				"name": "support_vendor_value",
+				"name": "Business Application Domain",
 				"type": "nvarchar"
 			},
 			{
-				"name": "sys_updated_by_value",
+				"name": "Business Application Install Status",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Business Application Business Process",
 				"type": "nvarchar"
 			},
 			{
-				"name": "sys_created_on_value",
+				"name": "Business Application Created Date",
 				"type": "datetime2",
 				"scale": 6
 			},
 			{
-				"name": "sys_domain_value",
+				"name": "Business Application Created_by Name",
 				"type": "nvarchar"
 			},
 			{
-				"name": "emergency_tier_value",
+				"name": "Business Application Updated Date",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "Business Application Updated by Name",
 				"type": "nvarchar"
 			},
 			{
-				"name": "company_value",
+				"name": "Business Application Business Owner ID",
 				"type": "nvarchar"
 			},
 			{
-				"name": "department_value",
+				"name": "Business Application Vendor ID",
 				"type": "nvarchar"
 			},
 			{
-				"name": "u_cat2classified_value",
-				"type": "bit"
+				"name": "Business Application Support Vendor ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Company ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Department ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application IT Application Owner ID",
+				"type": "nvarchar"
 			}
 		],
 		"typeProperties": {
