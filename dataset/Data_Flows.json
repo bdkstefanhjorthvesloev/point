@@ -9,43 +9,43 @@
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "Dataflow ID",
+				"name": "Data Flow ID",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Dataflow Revision Code",
+				"name": "Data Flow Code Revision",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Dataflow Timestamp",
+				"name": "Data Flow Timestamp",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Dataflow From IT Asset ID",
+				"name": "Data Flow From System",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Dataflow From IT Asset",
+				"name": "Data Flow From System ID",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Dataflow To IT asset ID",
+				"name": "Data Flow To System",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Dataflow To System",
+				"name": "Data Flow To System ID",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Dataflow Link ID",
+				"name": "Data Flow Link Description",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Dataflow Link Description",
+				"name": "Data Flow Link ID",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Dataflow Link Type",
+				"name": "Data Flow Link Type",
 				"type": "nvarchar"
 			}
 		],
