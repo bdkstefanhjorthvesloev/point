@@ -1,9 +1,9 @@
 {
-	"name": "Data Flows pipeline",
+	"name": "pipeline1",
 	"properties": {
 		"activities": [
 			{
-				"name": "Data_Flows_copy",
+				"name": "Copy data1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -22,7 +22,7 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "TRUNCATE TABLE [dbo].[Data Flows]",
+						"preCopyScript": "TRUNCATE TABLE [dbo].[Data Flows 2]",
 						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
@@ -36,7 +36,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow ID",
+									"name": "UniqueID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -48,7 +48,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow Code Revision",
+									"name": "CodeRevision",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -60,7 +60,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow Timestamp",
+									"name": "Timestamp",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -72,7 +72,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow From System",
+									"name": "From System",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -84,7 +84,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow From System ID",
+									"name": "From System ID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -96,7 +96,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow To System",
+									"name": "To System",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -108,7 +108,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow To System ID",
+									"name": "To System ID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -120,7 +120,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow Link Description",
+									"name": "Link Description",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -132,7 +132,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow Link ID",
+									"name": "Link ID",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -144,7 +144,7 @@
 									"physicalType": "nvarchar"
 								},
 								"sink": {
-									"name": "Data Flow Link Type",
+									"name": "Link Type",
 									"type": "String",
 									"physicalType": "nvarchar"
 								}
@@ -165,7 +165,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Data_Flows",
+						"referenceName": "Dataflows2",
 						"type": "DatasetReference"
 					}
 				]

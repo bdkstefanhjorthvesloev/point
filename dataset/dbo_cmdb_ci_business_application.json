@@ -115,7 +115,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "cmdb_ci_business_application"
+			"table": "Business Application"
 		}
 	}
 }

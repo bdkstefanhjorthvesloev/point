@@ -21,7 +21,9 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "AzureSqlSink"
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE [dbo].[Business Application]",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"translator": {

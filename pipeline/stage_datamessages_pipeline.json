@@ -1,5 +1,5 @@
 {
-	"name": "messagepipeline",
+	"name": "stage_datamessages_pipeline",
 	"properties": {
 		"activities": [
 			{
