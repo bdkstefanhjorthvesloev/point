@@ -191,7 +191,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "message_table",
 						"type": "DatasetReference"
 					}
 				]
