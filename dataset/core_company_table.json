@@ -7,7 +7,202 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "sso_source_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "zip_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "state_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "customer_value",
+				"type": "bit"
+			},
+			{
+				"name": "sys_created_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "theme_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "notes_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "longitude_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_updated_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "revenue_per_year_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "street_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "phone_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "discount_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "city_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "rank_tier_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "primary_value",
+				"type": "bit"
+			},
+			{
+				"name": "sys_tags_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_class_name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "stock_symbol_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "parent_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "contact_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "stock_price_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "manufacturer_value",
+				"type": "bit"
+			},
+			{
+				"name": "vendor_manager_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "fax_phone_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "fiscal_year_value",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "vendor_value",
+				"type": "bit"
+			},
+			{
+				"name": "publicly_traded_value",
+				"type": "bit"
+			},
+			{
+				"name": "latitude_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "lat_long_error_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_mod_count_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "num_employees_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "vendor_type_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "banner_image_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_updated_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "market_cap_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "website_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "profits_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_created_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "banner_image_light_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "apple_icon_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "x_snsab_snow_catal_snow_manufacturer_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "banner_text_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "coordinates_retrieved_on_value",
+				"type": "datetime2",
+				"scale": 6
+			}
+		],
 		"typeProperties": {
 			"schema": "stage",
 			"table": "core_company"
