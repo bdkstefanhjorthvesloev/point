@@ -9,8 +9,8 @@
 		"type": "AzureSqlTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "stage",
-			"table": "cmdb_ci_business_application"
+			"schema": "dbo",
+			"table": "Data Flows test"
 		}
 	}
 }
