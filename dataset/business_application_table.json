@@ -7,10 +7,184 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "Business Application ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Business Owner ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Vendor ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Support Vendor ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Company ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Department ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application IT Application Owner ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Description",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Criticality",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Company Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Department Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Life Cycle Stage",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Life Cycle Stage Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Business Process",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Data Classification",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Install Status",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Business Application Install Type",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Owner User Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Owner Full Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Owner Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Owner Mobile Phone Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Owner Company Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Application Owner User Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Application Owner Full Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Application Owner Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Application Owner Department",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Application Owner Mobile Phone Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "IT Application Owner Company Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Class Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Contract Manager Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Contract End Date",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "Business Application Certified",
+				"type": "bit"
+			},
+			{
+				"name": "Business Application Emergency Tier",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Cat2 Classified",
+				"type": "bit"
+			},
+			{
+				"name": "Business Application Operational Status",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Business Application Domain",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Created Date",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "Business Application Created_by Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Updated Date",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "Business Application Updated by Name",
+				"type": "nvarchar"
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "dim Business Application"
+			"table": "fact Bussiness Application"
 		}
 	}
 }
