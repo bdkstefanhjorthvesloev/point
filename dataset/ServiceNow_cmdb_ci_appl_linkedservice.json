@@ -9,7 +9,7 @@
 		"type": "ServiceNowObject",
 		"schema": [],
 		"typeProperties": {
-			"tableName": "\"Actual\".\"cmn_department\""
+			"tableName": "\"Actual\".\"cmdb_ci_business_process\""
 		}
 	}
 }

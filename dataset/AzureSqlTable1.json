@@ -1,0 +1,105 @@
+{
+	"name": "AzureSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Business Process ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Class Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Owned by",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Created Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Created by Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Created On",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Proces Updated Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Proces Updated by Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Install Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Category",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Operational Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Subcategory",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Model ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Impact to Availability",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Business Crit Declared",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Impact_to_confidentiality_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Impact_to_integrity_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Business Crit Determined_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Business Life Cycle Stage",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Business Life Cycle Stage Status",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Business Cat2 Classified",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Business Process"
+		}
+	}
+}
