@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "business_process_table",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
@@ -25,26 +25,6 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "Business Process Created Date",
-				"type": "nvarchar"
-			},
-			{
-				"name": "Business Process Created by Name",
-				"type": "nvarchar"
-			},
-			{
-				"name": "Business Process Created On",
-				"type": "nvarchar"
-			},
-			{
-				"name": "Business Proces Updated Date",
-				"type": "nvarchar"
-			},
-			{
-				"name": "Business Proces Updated by Name",
-				"type": "nvarchar"
-			},
-			{
 				"name": "Business Process Install Status",
 				"type": "nvarchar"
 			},
@@ -61,10 +41,6 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "Business Process Model ID",
-				"type": "nvarchar"
-			},
-			{
 				"name": "Business Process Impact to Availability",
 				"type": "nvarchar"
 			},
@@ -73,15 +49,15 @@
 				"type": "nvarchar"
 			},
 			{
-				"name": "Business Process Impact_to_confidentiality_value",
+				"name": "Business Process Impact to Confidentiality",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Business Process Impact_to_integrity_value",
+				"name": "Business Process Impact to Integrity",
 				"type": "nvarchar"
 			},
 			{
-				"name": "Business Process Business Crit Determined_value",
+				"name": "Business Process Business Crit Determined",
 				"type": "nvarchar"
 			},
 			{
@@ -94,6 +70,26 @@
 			},
 			{
 				"name": "Business Process Business Cat2 Classified",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Model ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Created Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Process Created by Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Proces Updated Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Proces Updated by Name",
 				"type": "nvarchar"
 			}
 		],

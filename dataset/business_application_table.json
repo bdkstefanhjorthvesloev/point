@@ -37,6 +37,10 @@
 				"type": "nvarchar"
 			},
 			{
+				"name": "Business Application Business Process ID",
+				"type": "nvarchar"
+			},
+			{
 				"name": "Business Application Number",
 				"type": "nvarchar"
 			},
@@ -61,15 +65,19 @@
 				"type": "nvarchar"
 			},
 			{
+				"name": "Business Application Process Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Process Owner",
+				"type": "nvarchar"
+			},
+			{
 				"name": "Business Application Life Cycle Stage",
 				"type": "nvarchar"
 			},
 			{
 				"name": "Business Application Life Cycle Stage Status",
-				"type": "nvarchar"
-			},
-			{
-				"name": "Business Application Business Process",
 				"type": "nvarchar"
 			},
 			{

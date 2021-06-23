@@ -297,7 +297,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "business_process_table",
 						"type": "DatasetReference"
 					}
 				]
