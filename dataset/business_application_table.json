@@ -184,7 +184,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "fact Bussiness Application"
+			"table": "fact Business Application"
 		}
 	}
 }
