@@ -1,0 +1,15 @@
+{
+	"name": "ServiceNow_building_facility",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ServiceNow1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ServiceNowObject",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "\"Actual\".\"cmdb_ci_building_facility\""
+		}
+	}
+}
