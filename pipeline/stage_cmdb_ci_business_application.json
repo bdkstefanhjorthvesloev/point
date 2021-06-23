@@ -1325,7 +1325,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
+						"referenceName": "ServiceNow_cmdb_ci_business_application",
 						"type": "DatasetReference"
 					}
 				],
