@@ -1,0 +1,15 @@
+{
+	"name": "ServiceNowObject1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ServiceNow1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ServiceNowObject",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "\"Actual\".\"sys_user\""
+		}
+	}
+}
