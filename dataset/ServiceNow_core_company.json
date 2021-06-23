@@ -1,0 +1,15 @@
+{
+	"name": "ServiceNow_core_company",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ServiceNow1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ServiceNowObject",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "\"Actual\".\"core_company\""
+		}
+	}
+}
