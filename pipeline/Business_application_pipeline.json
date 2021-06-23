@@ -1,5 +1,5 @@
 {
-	"name": "cmdb_ci_business_application",
+	"name": "Business_application_pipeline",
 	"properties": {
 		"activities": [
 			{
