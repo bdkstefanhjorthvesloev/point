@@ -1,0 +1,15 @@
+{
+	"name": "ServiceNow_cmn_location",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ServiceNow1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "ServiceNowObject",
+		"schema": [],
+		"typeProperties": {
+			"tableName": "\"Actual\".\"cmn_location\""
+		}
+	}
+}
