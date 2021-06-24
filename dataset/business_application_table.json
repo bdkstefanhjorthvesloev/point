@@ -41,6 +41,10 @@
 				"type": "nvarchar"
 			},
 			{
+				"name": "Business Application Process Owner Name ID",
+				"type": "nvarchar"
+			},
+			{
 				"name": "Business Application Number",
 				"type": "nvarchar"
 			},
@@ -62,14 +66,6 @@
 			},
 			{
 				"name": "Business Application Department Name",
-				"type": "nvarchar"
-			},
-			{
-				"name": "Business Application Process Name",
-				"type": "nvarchar"
-			},
-			{
-				"name": "Business Application Process Owner",
 				"type": "nvarchar"
 			},
 			{
@@ -135,6 +131,34 @@
 			},
 			{
 				"name": "IT Application Owner Company Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Process Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Process Owner User Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Process Owner Full Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Process Owner Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Process Owner Department",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Process Owner Mobile Phone Number",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Business Application Process Owner Company",
 				"type": "nvarchar"
 			},
 			{
