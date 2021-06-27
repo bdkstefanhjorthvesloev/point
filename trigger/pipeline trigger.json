@@ -10,6 +10,12 @@
 					"referenceName": "stage_cmdb_ci_appl_pipeline",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "stage_sys_user_pipeline",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
