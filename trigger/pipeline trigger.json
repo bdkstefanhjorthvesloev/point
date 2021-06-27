@@ -1,9 +1,17 @@
 {
 	"name": "pipeline trigger",
 	"properties": {
+		"description": "trigger pipelines",
 		"annotations": [],
-		"runtimeState": "Stopped",
-		"pipelines": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "stage_cmdb_ci_appl_pipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
 		"type": "ScheduleTrigger",
 		"typeProperties": {
 			"recurrence": {
