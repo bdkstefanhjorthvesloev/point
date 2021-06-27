@@ -13,25 +13,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureSqlTable1')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "stage",
-					"table": "messagefbane"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/messagesbane')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -155,113 +136,134 @@
 				"type": "AzureSqlTable",
 				"schema": [
 					{
-						"name": "sys_id_value",
+						"name": "Business Application ID",
 						"type": "nvarchar"
 					},
 					{
-						"name": "name_value",
+						"name": "Business Application Number",
 						"type": "nvarchar"
 					},
 					{
-						"name": "short_description_value",
+						"name": "Business Application Name",
 						"type": "nvarchar"
 					},
 					{
-						"name": "operational_status_value",
-						"type": "int",
-						"precision": 10
-					},
-					{
-						"name": "sys_updated_on_value",
-						"type": "datetime2",
-						"scale": 6
-					},
-					{
-						"name": "install_type_value",
+						"name": "Business Application Description",
 						"type": "nvarchar"
 					},
 					{
-						"name": "sys_created_by_value",
+						"name": "Business Application Criticality",
 						"type": "nvarchar"
 					},
 					{
-						"name": "owned_by_value",
+						"name": "Business Application Life Cycle Stage",
 						"type": "nvarchar"
 					},
 					{
-						"name": "life_cycle_stage_value",
+						"name": "Business Application Class Name",
 						"type": "nvarchar"
 					},
 					{
-						"name": "sys_class_name_value",
+						"name": "Business Application Data Classification",
 						"type": "nvarchar"
 					},
 					{
-						"name": "contract_end_date_value",
+						"name": "Business Application Life Cycle Stage Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Contract Manager Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Contract End Date",
 						"type": "datetime2",
 						"scale": 0
 					},
 					{
-						"name": "data_classification_value",
-						"type": "nvarchar"
-					},
-					{
-						"name": "vendor_value",
-						"type": "nvarchar"
-					},
-					{
-						"name": "life_cycle_stage_status_value",
-						"type": "nvarchar"
-					},
-					{
-						"name": "certified_value",
+						"name": "Business Application Certified",
 						"type": "bit"
 					},
 					{
-						"name": "business_criticality_value",
+						"name": "Business Application Emergency Tier",
 						"type": "nvarchar"
 					},
 					{
-						"name": "u_contract_manager_value",
+						"name": "Business Application Cat2 Classified",
+						"type": "bit"
+					},
+					{
+						"name": "Business Application Operational Status",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Business Application Install Type",
 						"type": "nvarchar"
 					},
 					{
-						"name": "support_vendor_value",
+						"name": "Business Application Domain",
 						"type": "nvarchar"
 					},
 					{
-						"name": "sys_updated_by_value",
+						"name": "Business Application Install Status",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Business Application Business Process",
 						"type": "nvarchar"
 					},
 					{
-						"name": "sys_created_on_value",
+						"name": "Business Application Created Date",
 						"type": "datetime2",
 						"scale": 6
 					},
 					{
-						"name": "sys_domain_value",
+						"name": "Business Application Created_by Name",
 						"type": "nvarchar"
 					},
 					{
-						"name": "emergency_tier_value",
+						"name": "Business Application Updated Date",
+						"type": "datetime2",
+						"scale": 6
+					},
+					{
+						"name": "Business Application Updated by Name",
 						"type": "nvarchar"
 					},
 					{
-						"name": "company_value",
+						"name": "Business Application Business Owner ID",
 						"type": "nvarchar"
 					},
 					{
-						"name": "department_value",
+						"name": "Business Application Vendor ID",
 						"type": "nvarchar"
 					},
 					{
-						"name": "u_cat2classified_value",
-						"type": "bit"
+						"name": "Business Application Support Vendor ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Company ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Department ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application IT Application Owner ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application ISO ID",
+						"type": "nvarchar"
 					}
 				],
 				"typeProperties": {
 					"schema": "dbo",
-					"table": "cmdb_ci_business_application"
+					"table": "Business Application"
 				}
 			},
 			"dependsOn": []
@@ -340,7 +342,8 @@
 						"type": "AzureBlobStorageLocation",
 						"fileName": "QW_Relations_7.xlsx",
 						"container": "qualiwareextracts"
-					}
+					},
+					"firstRowAsHeader": true
 				},
 				"schema": [
 					{
@@ -397,2710 +400,940 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Dataindsamling_IT_Asset_List_pipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/Data_Flows')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
 					{
-						"name": "IT_asset_list_Copy",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ExcelSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE [dbo].[stage.IT Assets]",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"enableSkipIncompatibleRow": true,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "IT Asset ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "QualiwareID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Qualiware IT Asset ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Title",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "IT Asset Description",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Description",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "IT Asset Type",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Type",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "IT Asset Business Area",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Business Area",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Organizational Operational Responsibility",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Organizational Operational Responsibility Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Business Process",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Business Process",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Lifecycle",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Lifecycle",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "IT Asset Responsibilities - Strategic",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Strategic Responsibility Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "IT Asset Responsibilities - Tactical",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Tactical Responsibility Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "IT Asset Responsibilities\t- Operational",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Operational Responsibility Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "NIS/ISO Criticality",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset NIS/ISO Criticality",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "Interface ID",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "IT Asset Interface ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "IT_Asset_list",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "IT_Asset_List_AzureSqlTable",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/stage_cmdb_ci_appl_pipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Service Now Copy Data",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE [stage].[cmdb_ci_appl]",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "sys_id_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_id_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "name_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "name_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "subcategory_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "subcategory_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "short_description_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "short_description_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "comments_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "comments_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "category_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "category_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "operational_status_value",
-											"type": "Int32"
-										},
-										"sink": {
-											"name": "operational_status_value",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_created_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_created_by_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_updated_on_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "sys_updated_on_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "company_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "company_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "managed_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "managed_by_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "vendor_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "vendor_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "supported_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "supported_by_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "owned_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "owned_by_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "stageservicenowcmdbciappl",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "stage_ServiceNow_cmdb_ci_appl",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/stage_cmdb_ci_business_application')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Service Now Copy Data",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ServiceNowSource"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"preCopyScript": "TRUNCATE TABLE [stage].[cmdb_ci_business_application]",
-								"tableOption": "autoCreate",
-								"disableMetricsCollection": false
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "sys_id_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_id_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "attested_date_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "attested_date_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "operational_status_value",
-											"type": "Int32"
-										},
-										"sink": {
-											"name": "operational_status_value",
-											"type": "Int32",
-											"physicalType": "Int32"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_updated_on_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "sys_updated_on_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "install_type_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "install_type_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "number_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "number_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "discovery_source_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "discovery_source_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "first_discovered_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "first_discovered_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "due_in_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "due_in_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "it_application_owner_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "it_application_owner_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "apm_business_process_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "apm_business_process_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "invoice_number_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "invoice_number_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "gl_account_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "gl_account_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_created_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_created_by_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "warranty_expiration_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "warranty_expiration_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "organization_unit_count_value",
-											"type": "Int32"
-										},
-										"sink": {
-											"name": "organization_unit_count_value",
-											"type": "Int32",
-											"physicalType": "Int32"
-										}
-									},
-									{
-										"source": {
-											"name": "active_value",
-											"type": "Boolean"
-										},
-										"sink": {
-											"name": "active_value",
-											"type": "Boolean",
-											"physicalType": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "owned_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "owned_by_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "checked_out_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "checked_out_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_domain_path_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_domain_path_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "business_unit_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "business_unit_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "maintenance_schedule_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "maintenance_schedule_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "u_transformation_documentation_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "u_transformation_documentation_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "application_manager_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "application_manager_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "cost_center_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "cost_center_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "u_first_tsa_techn_resp_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "u_first_tsa_techn_resp_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "attested_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "attested_by_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "dns_domain_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "dns_domain_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "assigned_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "assigned_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "purchase_date_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "purchase_date_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "life_cycle_stage_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "life_cycle_stage_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "short_description_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "short_description_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "last_change_date_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "last_change_date_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "managed_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "managed_by_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "last_discovered_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "last_discovered_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "can_print_value",
-											"type": "Boolean"
-										},
-										"sink": {
-											"name": "can_print_value",
-											"type": "Boolean",
-											"physicalType": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "next_assessment_date_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "next_assessment_date_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_class_name_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_class_name_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "manufacturer_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "manufacturer_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "contract_end_date_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "contract_end_date_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "data_classification_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "data_classification_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "vendor_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "vendor_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "life_cycle_stage_status_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "life_cycle_stage_status_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "certified_value",
-											"type": "Boolean"
-										},
-										"sink": {
-											"name": "certified_value",
-											"type": "Boolean",
-											"physicalType": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "currency_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "currency_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "model_number_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "model_number_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "u_transformation_status_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "u_transformation_status_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "assigned_to_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "assigned_to_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "start_date_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "start_date_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "u_second_tsa_techn_resp_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "u_second_tsa_techn_resp_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "business_criticality_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "business_criticality_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "serial_number_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "serial_number_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "url_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "url_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "support_group_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "support_group_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "technology_stack_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "technology_stack_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "audience_type_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "audience_type_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "u_contract_manager_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "u_contract_manager_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "correlation_id_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "correlation_id_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "unverified_value",
-											"type": "Boolean"
-										},
-										"sink": {
-											"name": "unverified_value",
-											"type": "Boolean",
-											"physicalType": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "attributes_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "attributes_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "asset_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "asset_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "software_license_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "software_license_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "skip_sync_value",
-											"type": "Boolean"
-										},
-										"sink": {
-											"name": "skip_sync_value",
-											"type": "Boolean",
-											"physicalType": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "active_user_count_value",
-											"type": "Int32"
-										},
-										"sink": {
-											"name": "active_user_count_value",
-											"type": "Int32",
-											"physicalType": "Int32"
-										}
-									},
-									{
-										"source": {
-											"name": "support_vendor_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "support_vendor_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "appraisal_fiscal_type_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "appraisal_fiscal_type_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "attestation_score_value",
-											"type": "Int32"
-										},
-										"sink": {
-											"name": "attestation_score_value",
-											"type": "Int32",
-											"physicalType": "Int32"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_updated_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_updated_by_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_created_on_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "sys_created_on_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_domain_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_domain_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "install_date_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "install_date_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "asset_tag_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "asset_tag_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "fqdn_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "fqdn_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "change_control_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "change_control_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "emergency_tier_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "emergency_tier_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "product_support_status_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "product_support_status_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "delivery_date_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "delivery_date_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "install_status_value",
-											"type": "Int32"
-										},
-										"sink": {
-											"name": "install_status_value",
-											"type": "Int32",
-											"physicalType": "Int32"
-										}
-									},
-									{
-										"source": {
-											"name": "supported_by_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "supported_by_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "name_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "name_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "work_notes_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "work_notes_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "subcategory_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "subcategory_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "assignment_group_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "assignment_group_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "application_type_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "application_type_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "architecture_type_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "architecture_type_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "managed_by_group_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "managed_by_group_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "platform_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "platform_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "po_number_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "po_number_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_class_path_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_class_path_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "checked_in_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "checked_in_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "mac_address_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "mac_address_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "company_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "company_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "justification_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "justification_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "department_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "department_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "u_cat2classified_value",
-											"type": "Boolean"
-										},
-										"sink": {
-											"name": "u_cat2classified_value",
-											"type": "Boolean",
-											"physicalType": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "cost_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "cost_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "comments_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "comments_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "cmdb_software_product_model_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "cmdb_software_product_model_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_mod_count_value",
-											"type": "Int32"
-										},
-										"sink": {
-											"name": "sys_mod_count_value",
-											"type": "Int32",
-											"physicalType": "Int32"
-										}
-									},
-									{
-										"source": {
-											"name": "monitor_value",
-											"type": "Boolean"
-										},
-										"sink": {
-											"name": "monitor_value",
-											"type": "Boolean",
-											"physicalType": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "model_id_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "model_id_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "ip_address_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "ip_address_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "duplicate_of_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "duplicate_of_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_tags_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "sys_tags_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "cost_cc_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "cost_cc_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "user_base_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "user_base_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "schedule_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "schedule_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "order_date_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "order_date_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "environment_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "environment_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "due_value",
-											"type": "DateTime"
-										},
-										"sink": {
-											"name": "due_value",
-											"type": "DateTime",
-											"physicalType": "DateTime"
-										}
-									},
-									{
-										"source": {
-											"name": "platform_host_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "platform_host_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "attested_value",
-											"type": "Boolean"
-										},
-										"sink": {
-											"name": "attested_value",
-											"type": "Boolean",
-											"physicalType": "Boolean"
-										}
-									},
-									{
-										"source": {
-											"name": "location_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "location_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "category_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "category_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "fault_count_value",
-											"type": "Int32"
-										},
-										"sink": {
-											"name": "fault_count_value",
-											"type": "Int32",
-											"physicalType": "Int32"
-										}
-									},
-									{
-										"source": {
-											"name": "lease_id_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "lease_id_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "age_value",
-											"type": "String"
-										},
-										"sink": {
-											"name": "age_value",
-											"type": "String",
-											"physicalType": "String"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "stage_cmdb_business_application",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/stage_cmdb_business_application')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/messagepipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "message fbane copy",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ExcelSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"tableOption": "autoCreate"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "Message id",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Message id",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "Event",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Event",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "Service",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Service",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "Receiver",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Receiver",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "Operation",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Operation",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "Sender id",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Sender id",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "Fault reason",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Fault reason",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "Timestamp",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Timestamp",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "Outbound URI",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Outbound URI",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "HTTP Response Code",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "HTTP Response Code",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "HTTP Response Message",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "HTTP Response Message",
-											"type": "String",
-											"physicalType": "String"
-										}
-									},
-									{
-										"source": {
-											"name": "Cil Version",
-											"type": "String",
-											"physicalType": "String"
-										},
-										"sink": {
-											"name": "Cil Version",
-											"type": "String",
-											"physicalType": "String"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "Excel1",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "AzureSqlTable1",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
+						"name": "Data Flow ID",
+						"type": "nvarchar"
 					},
 					{
-						"name": "Copy data1",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ExcelSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"tableOption": "autoCreate"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "messagesbane",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "stagemessagesbane",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
+						"name": "Data Flow Code Revision",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow Timestamp",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow From System",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow From System ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow To System",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow To System ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow Link Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow Link ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow Link Type",
+						"type": "nvarchar"
 					}
 				],
-				"annotations": []
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Data Flows"
+				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/AzureSqlTable1')]",
-				"[concat(variables('factoryId'), '/datasets/messagesbane')]",
-				"[concat(variables('factoryId'), '/datasets/stagemessagesbane')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/cmdb_ci_business_application')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/fact_data_flows')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
 					{
-						"name": "cmdb_ci_business_applicaion_copy",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "AzureSqlSink"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"name": "sys_id_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "number_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Number",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "name_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "short_description_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Description",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "business_criticality_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Criticality",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "life_cycle_stage_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Life Cycle Stage",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_class_name_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Class Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "data_classification_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Data Classification",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "life_cycle_stage_status_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Life Cycle Stage Status",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "contract_end_date_value",
-											"type": "DateTime",
-											"physicalType": "datetime2"
-										},
-										"sink": {
-											"name": "Business Application Contract End Date",
-											"type": "DateTime",
-											"physicalType": "datetime2"
-										}
-									},
-									{
-										"source": {
-											"name": "certified_value",
-											"type": "Boolean",
-											"physicalType": "bit"
-										},
-										"sink": {
-											"name": "Business Application Certified",
-											"type": "Boolean",
-											"physicalType": "bit"
-										}
-									},
-									{
-										"source": {
-											"name": "emergency_tier_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Emergency Tier",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "u_contract_manager_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Contract Manager Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "u_cat2classified_value",
-											"type": "Boolean",
-											"physicalType": "bit"
-										},
-										"sink": {
-											"name": "Business Application Cat2 Classified",
-											"type": "Boolean",
-											"physicalType": "bit"
-										}
-									},
-									{
-										"source": {
-											"name": "operational_status_value",
-											"type": "Int32",
-											"physicalType": "int"
-										},
-										"sink": {
-											"name": "Business Application Operational Status",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "install_type_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Install Type",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_domain_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Domain",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "install_status_value",
-											"type": "Int32",
-											"physicalType": "int"
-										},
-										"sink": {
-											"name": "Business Application Install Status",
-											"type": "Int32",
-											"physicalType": "int"
-										}
-									},
-									{
-										"source": {
-											"name": "apm_business_process_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Business Process",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_created_on_value",
-											"type": "DateTime",
-											"physicalType": "datetime2"
-										},
-										"sink": {
-											"name": "Business Application Created Date",
-											"type": "DateTime",
-											"physicalType": "datetime2"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_created_by_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Created_by Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_updated_on_value",
-											"type": "DateTime",
-											"physicalType": "datetime2"
-										},
-										"sink": {
-											"name": "Business Application Updated Date",
-											"type": "DateTime",
-											"physicalType": "datetime2"
-										}
-									},
-									{
-										"source": {
-											"name": "sys_updated_by_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Updated by Name",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "owned_by_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Owned by ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "vendor_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Vendor ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "support_vendor_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Support Vendor ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "company_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Company ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "department_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Department ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									},
-									{
-										"source": {
-											"name": "it_application_owner_value",
-											"type": "String",
-											"physicalType": "nvarchar"
-										},
-										"sink": {
-											"name": "Business Application Owner ID",
-											"type": "String",
-											"physicalType": "nvarchar"
-										}
-									}
-								],
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "stage_cmdb_business_application",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "dbo_cmdb_ci_business_application",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
+						"name": "Data Flow ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow Code Revision",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow Timestamp",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow From System",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow From System ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow To System",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow To System ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow Link Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow Link ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Data Flow Link Type",
+						"type": "nvarchar"
 					}
 				],
-				"annotations": []
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "fact Data Flows"
+				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/stage_cmdb_business_application')]",
-				"[concat(variables('factoryId'), '/datasets/dbo_cmdb_ci_business_application')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_cmdb_ci')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/Usertable')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
 					{
-						"name": "stage_cmdb_ci_copy",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ServiceNowSource"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"tableOption": "autoCreate"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "stage_cmdb_ci",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
+						"name": "User ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Full Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User First Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Last Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Title",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Department",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Employee Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Mobile Phone Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Company",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Active Flag",
+						"type": "bit"
+					},
+					{
+						"name": "User Location",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User City",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Street Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Zip Code",
+						"type": "nvarchar"
+					},
+					{
+						"name": "User Manager ID",
+						"type": "nvarchar"
 					}
 				],
-				"annotations": []
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "User"
+				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/stage_cmdb_ci')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_cmdb_pipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/core_company_table')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
 					{
-						"name": "stage_cmdb_copy",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ServiceNowSource"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"tableOption": "autoCreate"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "stage_cmdb",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
+						"name": "sso_source_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "zip_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "state_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "customer_value",
+						"type": "bit"
+					},
+					{
+						"name": "sys_created_on_value",
+						"type": "datetime2",
+						"scale": 6
+					},
+					{
+						"name": "theme_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "notes_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "longitude_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "sys_updated_by_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "sys_id_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "revenue_per_year_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "street_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "phone_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "discount_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "city_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "name_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "rank_tier_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "primary_value",
+						"type": "bit"
+					},
+					{
+						"name": "sys_tags_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "sys_class_name_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "stock_symbol_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "parent_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "contact_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "stock_price_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "manufacturer_value",
+						"type": "bit"
+					},
+					{
+						"name": "vendor_manager_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "fax_phone_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "fiscal_year_value",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "vendor_value",
+						"type": "bit"
+					},
+					{
+						"name": "publicly_traded_value",
+						"type": "bit"
+					},
+					{
+						"name": "latitude_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "lat_long_error_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "sys_mod_count_value",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "num_employees_value",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "vendor_type_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "country_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "banner_image_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "sys_updated_on_value",
+						"type": "datetime2",
+						"scale": 6
+					},
+					{
+						"name": "market_cap_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "website_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "profits_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "sys_created_by_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "banner_image_light_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "apple_icon_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "x_snsab_snow_catal_snow_manufacturer_id_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "banner_text_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "coordinates_retrieved_on_value",
+						"type": "datetime2",
+						"scale": 6
 					}
 				],
-				"annotations": []
+				"typeProperties": {
+					"schema": "stage",
+					"table": "core_company"
+				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/stage_cmdb')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_sys_user_pipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/company_table')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
 					{
-						"name": "stage_sys_user_pipeline",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ServiceNowSource"
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"tableOption": "autoCreate"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ServiceNow_cmdb_ci_appl_linkedservice",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "stage_sys_user",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
+						"name": "Company ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Company Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Company Street",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Company Phone",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Company City",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Company Class Name ",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Company sys_created_on_value",
+						"type": "datetime2",
+						"scale": 6
+					},
+					{
+						"name": "Company sys_created_by_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Company sys_updated_by_value",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Company sys_updated_on_value",
+						"type": "datetime2",
+						"scale": 6
 					}
 				],
-				"annotations": []
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Company"
+				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/stage_sys_user')]"
-			]
+			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/stage_qw_relations')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
+			"name": "[concat(parameters('factoryName'), '/stage_cmn_department_table')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"activities": [
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "stage",
+					"table": "cmn_department"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/department_table')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
 					{
-						"name": "qw_relations_7",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "ExcelSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								}
-							},
-							"sink": {
-								"type": "AzureSqlSink",
-								"tableOption": "autoCreate"
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "qw_relations_7",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "stage_qw_relations",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
+						"name": "Department ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Department Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Company ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Department Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Department Created Date",
+						"type": "datetime2",
+						"scale": 6
+					},
+					{
+						"name": "Department Created by Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Department Updated Date",
+						"type": "datetime2",
+						"scale": 6
+					},
+					{
+						"name": "Department Updated by Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "ID",
+						"type": "nvarchar"
 					}
 				],
-				"annotations": []
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Department"
+				}
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/qw_relations_7')]",
-				"[concat(variables('factoryId'), '/datasets/stage_qw_relations')]"
-			]
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/business_app_business_owner')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "transform",
+					"table": "business_app_1"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/business_application_table')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Business Application ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Business Owner ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Vendor ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Support Vendor ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Company ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Department ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application IT Application Owner ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Business Process ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Process Owner Name ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application ISO ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Description",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Criticality",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Company Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Department Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Life Cycle Stage",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Life Cycle Stage Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Data Classification",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Install Status",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Business Application Install Type",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Owner User Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Owner Full Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Owner Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Owner Mobile Phone Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Owner Company Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Application Owner User Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Application Owner Full Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Application Owner Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Application Owner Department",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Application Owner Mobile Phone Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "IT Application Owner Company Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Process Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Process Owner User Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Process Owner Full Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Process Owner Email",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Process Owner Department",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Process Owner Mobile Phone Number",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Process Owner Company",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Class Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Contract Manager Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Contract End Date",
+						"type": "datetime2",
+						"scale": 0
+					},
+					{
+						"name": "Business Application Certified",
+						"type": "bit"
+					},
+					{
+						"name": "Business Application Emergency Tier",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Cat2 Classified",
+						"type": "bit"
+					},
+					{
+						"name": "Business Application Operational Status",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "Business Application Domain",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Created Date",
+						"type": "datetime2",
+						"scale": 6
+					},
+					{
+						"name": "Business Application Created_by Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Application Updated Date",
+						"type": "datetime2",
+						"scale": 6
+					},
+					{
+						"name": "Business Application Updated by Name",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "fact Business Application"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/stage_cmdb_ci_business_process')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "stage",
+					"table": "cmdb_ci_business_process"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/business_process_table')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "Business Process ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Class Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Owned by",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Install Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Category",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Operational Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Subcategory",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Impact to Availability",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Business Crit Declared",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Impact to Confidentiality",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Impact to Integrity",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Business Crit Determined",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Business Life Cycle Stage",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Business Life Cycle Stage Status",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Business Cat2 Classified",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Model ID",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Created Date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Process Created by Name",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Proces Updated Date",
+						"type": "nvarchar"
+					},
+					{
+						"name": "Business Proces Updated by Name",
+						"type": "nvarchar"
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "Business Process"
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }
