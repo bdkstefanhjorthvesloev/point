@@ -45,6 +45,10 @@
 				"type": "nvarchar"
 			},
 			{
+				"name": "Business Application ISO ID",
+				"type": "nvarchar"
+			},
+			{
 				"name": "Business Application Number",
 				"type": "nvarchar"
 			},
