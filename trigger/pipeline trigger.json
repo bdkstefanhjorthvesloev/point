@@ -22,6 +22,12 @@
 					"referenceName": "stage_cmdb_rel_ci",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "User_pipeline",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
