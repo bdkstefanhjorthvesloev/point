@@ -16,6 +16,12 @@
 					"referenceName": "stage_sys_user_pipeline",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "stage_cmdb_rel_ci",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
