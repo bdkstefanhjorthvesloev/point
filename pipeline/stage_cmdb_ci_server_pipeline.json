@@ -1,0 +1,1526 @@
+{
+	"name": "stage_cmdb_ci_server_pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "stage_cmdb_ci_server_copy",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ServiceNowSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink"
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "po_number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "po_number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cpu_core_thread_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "cpu_core_thread_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "vendor_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "vendor_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "supported_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "supported_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "checked_out_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "checked_out_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "disk_space_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "disk_space_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "os_address_width_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "os_address_width_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "mac_address_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "mac_address_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "host_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "host_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cpu_speed_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cpu_speed_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cpu_count_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "cpu_count_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "chassis_type_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "chassis_type_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gl_account_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "gl_account_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "comments_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "comments_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "due_in_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "due_in_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "short_description_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "short_description_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ram_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "ram_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "skip_sync_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "skip_sync_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_created_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "cpu_manufacturer_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cpu_manufacturer_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "install_status_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "install_status_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "firewall_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "firewall_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "correlation_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "correlation_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "fqdn_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "fqdn_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "category_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "category_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "virtual_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "virtual_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "cd_rom_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "cd_rom_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "cpu_type_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cpu_type_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "checked_in_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "checked_in_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "purchase_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "purchase_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "attributes_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "attributes_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "invoice_number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "invoice_number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "support_group_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "support_group_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hardware_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "hardware_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "used_for_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "used_for_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "schedule_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "schedule_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "justification_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "justification_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "os_version_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "os_version_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "os_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "os_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "os_service_pack_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "os_service_pack_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_discovered_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "last_discovered_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "delivery_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "delivery_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "fault_count_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "fault_count_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "location_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "location_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "model_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "model_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "change_control_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "change_control_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "managed_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "managed_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ip_address_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ip_address_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "assigned_to_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "assigned_to_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "order_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "order_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "discovery_source_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discovery_source_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "serial_number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "serial_number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "dr_backup_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "dr_backup_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "floppy_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "floppy_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "first_discovered_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "first_discovered_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_class_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_class_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "can_print_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "can_print_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "cost_cc_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cost_cc_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "owned_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "owned_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "model_number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "model_number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "assigned_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "assigned_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "asset_tag_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "asset_tag_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "company_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "company_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cpu_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cpu_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "dns_domain_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "dns_domain_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cpu_core_count_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "cpu_core_count_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_domain_path_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_domain_path_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "os_domain_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "os_domain_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_mod_count_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "sys_mod_count_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "warranty_expiration_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "warranty_expiration_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_tags_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_tags_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "due_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "due_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "assignment_group_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "assignment_group_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cost_center_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cost_center_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "monitor_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "monitor_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_domain_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_domain_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_updated_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "lease_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "lease_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "classification_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "classification_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "operational_status_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "operational_status_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "hardware_substatus_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "hardware_substatus_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "maintenance_schedule_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "maintenance_schedule_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "department_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "department_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "subcategory_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "subcategory_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cd_speed_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "cd_speed_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "manufacturer_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "manufacturer_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "asset_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "asset_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cost_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cost_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "install_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "install_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "form_factor_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "form_factor_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "start_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "start_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_created_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "unverified_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "unverified_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "default_gateway_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "default_gateway_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "attested_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "attested_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_snow_org_checksum_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_snow_org_checksum_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_monitoring_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "u_monitoring_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_last_logged_on_user_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_last_logged_on_user_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_allonge_ind_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_allonge_ind_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "object_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "object_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_most_frequent_user_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_most_frequent_user_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_transformation_documentation_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_transformation_documentation_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "attested_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "attested_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "life_cycle_stage_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "life_cycle_stage_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_backup_type_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_backup_type_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "life_cycle_stage_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "life_cycle_stage_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_transformation_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_transformation_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_backup_description_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_backup_description_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_snow_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_snow_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_allonge_ud_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_allonge_ud_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_hypervisorname_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_hypervisorname_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_business_criticality_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_business_criticality_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "attestation_score_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "attestation_score_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "u_monitoring_tool_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_monitoring_tool_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_sla_level_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_sla_level_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_is_server_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_is_server_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "internet_facing_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "internet_facing_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_primary_user_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_primary_user_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_monitor_type_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_monitor_type_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "managed_by_group_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "managed_by_group_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_snow_computer_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_snow_computer_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_backup_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "u_backup_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_class_path_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_class_path_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_cat2classified_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "u_cat2classified_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "x_snsab_snow_sam_i_snow_organization_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "x_snsab_snow_sam_i_snow_organization_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_server_installation_change_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_server_installation_change_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "duplicate_of_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "duplicate_of_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_lw_primary_user_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_lw_primary_user_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "environment_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "environment_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "attested_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "attested_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "u_cat2_classifed_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "u_cat2_classifed_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ServiceNow_server",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "stage_cmdb_ci_server_table",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
