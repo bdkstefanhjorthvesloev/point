@@ -1,0 +1,16 @@
+{
+	"name": "stage_cmdb_ci_business_capabibily_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stage",
+			"table": "cmdb_ci_business_capability"
+		}
+	}
+}
