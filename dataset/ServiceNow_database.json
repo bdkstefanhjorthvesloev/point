@@ -1,5 +1,5 @@
 {
-	"name": "ServiceNowObject2",
+	"name": "ServiceNow_database",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ServiceNow1",
