@@ -1,0 +1,1429 @@
+{
+	"name": "stage_cmdb_ci_service_discovered_pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "stage_cmdb_ci_service_discovered_copy",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ServiceNowSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE [stage].[cmdb_ci_service_discovered]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "sys_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "parent_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "parent_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "attested_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "attested_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "operational_status_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "operational_status_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "consumer_type_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "consumer_type_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "type_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "type_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "discovery_source_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "discovery_source_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "first_discovered_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "first_discovered_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "due_in_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "due_in_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "traffic_discovery_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "traffic_discovery_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "used_for_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "used_for_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "invoice_number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "invoice_number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "gl_account_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "gl_account_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_created_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "warranty_expiration_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "warranty_expiration_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "sla_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sla_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "owned_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "owned_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "checked_out_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "checked_out_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_domain_path_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_domain_path_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "priority_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "priority_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "version_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "version_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "bucket_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "bucket_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "maintenance_schedule_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "maintenance_schedule_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_transformation_documentation_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_transformation_documentation_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cost_center_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cost_center_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "attested_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "attested_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "process_status_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "process_status_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "dns_domain_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "dns_domain_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "service_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "service_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "assigned_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "assigned_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "purchase_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "purchase_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "life_cycle_stage_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "life_cycle_stage_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "portfolio_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "portfolio_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "delivery_manager_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "delivery_manager_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "business_need_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "business_need_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "end_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "end_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "short_description_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "short_description_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "busines_criticality_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "busines_criticality_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "managed_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "managed_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "stakeholders_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "stakeholders_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_discovered_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "last_discovered_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "can_print_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "can_print_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "service_owner_delegate_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "service_owner_delegate_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_class_name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_class_name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "layer_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "layer_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "manufacturer_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "manufacturer_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "vendor_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "vendor_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "life_cycle_stage_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "life_cycle_stage_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "view_service_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "view_service_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "model_number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "model_number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_transformation_status_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "u_transformation_status_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "assigned_to_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "assigned_to_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "start_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "start_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "serial_number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "serial_number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "spm_taxonomy_node_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "spm_taxonomy_node_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "price_unit_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "price_unit_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "support_group_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "support_group_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "correlation_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "correlation_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "unverified_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "unverified_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "attributes_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "attributes_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "asset_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "asset_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "skip_sync_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "skip_sync_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "aliases_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "aliases_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "source_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "view_map_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "view_map_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "attestation_score_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "attestation_score_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "service_level_requirement_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "service_level_requirement_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_updated_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_created_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_domain_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_domain_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "hide_from_dashboard_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "hide_from_dashboard_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "install_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "install_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "monitoring_requirements_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "monitoring_requirements_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "asset_tag_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "asset_tag_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "user_group_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "user_group_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "fqdn_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "fqdn_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "spm_service_portfolio_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "spm_service_portfolio_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "change_control_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "change_control_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "unit_description_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "unit_description_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "business_relation_manager_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "business_relation_manager_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "last_review_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "last_review_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "business_contact_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "business_contact_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "compatibility_dependencies_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "compatibility_dependencies_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "delivery_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "delivery_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "install_status_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "install_status_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "supported_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "supported_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "discovery_status_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "discovery_status_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "work_notes_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "work_notes_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "subcategory_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "subcategory_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "price_model_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "price_model_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "assignment_group_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "assignment_group_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "managed_by_group_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "managed_by_group_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "prerequisites_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "prerequisites_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "po_number_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "po_number_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_class_path_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_class_path_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "checked_in_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "checked_in_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "mac_address_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "mac_address_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "company_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "company_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "justification_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "justification_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "department_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "department_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_cat2classified_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "u_cat2classified_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "severity_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "severity_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cost_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cost_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "comments_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "comments_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_mod_count_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "sys_mod_count_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "monitor_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "monitor_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "model_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "model_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "ip_address_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ip_address_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "duplicate_of_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "duplicate_of_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_tags_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_tags_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cost_cc_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cost_cc_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "schedule_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "schedule_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "order_date_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "order_date_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "environment_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "environment_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "due_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "due_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "attested_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "attested_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "location_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "location_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "u_cat2_classifed_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "u_cat2_classifed_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "category_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "category_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "fault_count_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "fault_count_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "lease_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "lease_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "service_classification_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "service_classification_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ServiceNow_application_service",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "stage_cmdb_ci_service_discovered_table",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

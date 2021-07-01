@@ -1,0 +1,17 @@
+{
+	"name": "stage_cmdb_ci_service_discovered_table",
+	"properties": {
+		"description": "Application Service",
+		"linkedServiceName": {
+			"referenceName": "bdk_point_dev_01_DataBase_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "stage",
+			"table": "cmdb_ci_service_discovered"
+		}
+	}
+}
