@@ -1,5 +1,5 @@
 {
-	"name": "User_pipeline",
+	"name": "dbo_User_pipeline",
 	"properties": {
 		"activities": [
 			{

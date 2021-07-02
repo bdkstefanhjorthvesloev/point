@@ -25,7 +25,7 @@
 			},
 			{
 				"pipelineReference": {
-					"referenceName": "User_pipeline",
+					"referenceName": "dbo_User_pipeline",
 					"type": "PipelineReference"
 				}
 			}
