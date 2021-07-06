@@ -7,7 +7,104 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "active_value",
+				"type": "bit"
+			},
+			{
+				"name": "type_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_created_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "email_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "description_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_updated_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "include_members_value",
+				"type": "bit"
+			},
+			{
+				"name": "manager_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "exclude_manager_value",
+				"type": "bit"
+			},
+			{
+				"name": "sys_mod_count_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "default_assignee_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_created_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_updated_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "sys_tags_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "roles_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "cost_center_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "parent_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "average_daily_fte_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "points_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "hourly_rate_value",
+				"type": "nvarchar"
+			}
+		],
 		"typeProperties": {
 			"schema": "stage",
 			"table": "sys_user_group"

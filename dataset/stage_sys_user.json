@@ -7,7 +7,292 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "employee_number_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "preferred_language_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_created_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "date_format_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "notification_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sys_class_name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "mobile_phone_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "web_service_access_only_value",
+				"type": "bit"
+			},
+			{
+				"name": "last_name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "company_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "active_value",
+				"type": "bit"
+			},
+			{
+				"name": "last_login_time_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "failed_attempts_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sys_domain_path_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "schedule_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "default_perspective_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "password_needs_reset_value",
+				"type": "bit"
+			},
+			{
+				"name": "sys_mod_count_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "sys_created_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "user_password_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "locked_out_value",
+				"type": "bit"
+			},
+			{
+				"name": "cost_center_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "last_login_value",
+				"type": "datetime2",
+				"scale": 0
+			},
+			{
+				"name": "ldap_server_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sso_source_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "gender_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "user_name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "time_zone_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "middle_name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "internal_integration_user_value",
+				"type": "bit"
+			},
+			{
+				"name": "sys_updated_on_value",
+				"type": "datetime2",
+				"scale": 6
+			},
+			{
+				"name": "sys_updated_by_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "time_format_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "street_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "phone_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "vip_value",
+				"type": "bit"
+			},
+			{
+				"name": "state_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "photo_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_tags_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "department_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "introduction_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "title_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "building_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "first_name_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sys_domain_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "zip_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "email_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "manager_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "location_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "country_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "city_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "roles_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "home_phone_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "calendar_integration_value",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "last_login_device_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "x_snsab_snow_sam_i_snow_org_checksum_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "x_snsab_snow_sam_i_snow_user_id_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "enable_multifactor_authn_value",
+				"type": "bit"
+			},
+			{
+				"name": "x_snsab_snow_sam_i_domain_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "time_sheet_policy_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "average_daily_fte_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "last_password_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "edu_status_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "x_snsab_snow_sam_i_snow_organization_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "avatar_value",
+				"type": "nvarchar"
+			},
+			{
+				"name": "u_employee_certification_nets_consent_value",
+				"type": "bit"
+			}
+		],
 		"typeProperties": {
 			"schema": "stage",
 			"table": "sys_user"
