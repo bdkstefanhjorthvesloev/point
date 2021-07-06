@@ -1,5 +1,5 @@
 {
-	"name": "Dataindsamling_IT_Asset_List_pipeline",
+	"name": "dbo_Dataindsamling_IT_Asset_List_pipeline",
 	"properties": {
 		"activities": [
 			{

@@ -1,5 +1,5 @@
 {
-	"name": "Business_application_pipeline",
+	"name": "dbo_fact_Business_application_pipeline",
 	"properties": {
 		"activities": [
 			{

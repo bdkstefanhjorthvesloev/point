@@ -1,0 +1,307 @@
+{
+	"name": "stage_sys_user_group_pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "stage_ sys_user_group_copy",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ServiceNowSource"
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"preCopyScript": "TRUNCATE TABLE [stage].[sys_user_group]",
+						"disableMetricsCollection": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "active_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "active_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "type_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "type_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_created_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "email_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "email_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "description_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "description_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_updated_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_id_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_id_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "include_members_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "include_members_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "manager_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "manager_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "exclude_manager_value",
+									"type": "Boolean"
+								},
+								"sink": {
+									"name": "exclude_manager_value",
+									"type": "Boolean",
+									"physicalType": "bit"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_mod_count_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "sys_mod_count_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "default_assignee_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "default_assignee_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_created_by_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_created_by_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "name_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "name_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime"
+								},
+								"sink": {
+									"name": "sys_updated_on_value",
+									"type": "DateTime",
+									"physicalType": "datetime2"
+								}
+							},
+							{
+								"source": {
+									"name": "sys_tags_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "sys_tags_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "roles_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "roles_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "cost_center_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "cost_center_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "parent_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "parent_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "source_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "source_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "average_daily_fte_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "average_daily_fte_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "points_value",
+									"type": "Int32"
+								},
+								"sink": {
+									"name": "points_value",
+									"type": "Int32",
+									"physicalType": "int"
+								}
+							},
+							{
+								"source": {
+									"name": "hourly_rate_value",
+									"type": "String"
+								},
+								"sink": {
+									"name": "hourly_rate_value",
+									"type": "String",
+									"physicalType": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ServiceNow_User_group",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "stage_sys_user_group_table",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}

@@ -1,5 +1,5 @@
 {
-	"name": "data flows pipeline 2",
+	"name": "dbo_data_flows_pipeline_2",
 	"properties": {
 		"activities": [
 			{

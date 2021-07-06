@@ -1,5 +1,5 @@
 {
-	"name": "Business Process_pipeline",
+	"name": "dbo_Business Process_pipeline",
 	"properties": {
 		"activities": [
 			{

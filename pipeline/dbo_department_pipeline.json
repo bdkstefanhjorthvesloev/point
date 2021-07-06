@@ -1,5 +1,5 @@
 {
-	"name": "department_pipeline",
+	"name": "dbo_department_pipeline",
 	"properties": {
 		"activities": [
 			{
